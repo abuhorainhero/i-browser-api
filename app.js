@@ -6,6 +6,7 @@ const logger = require("morgan");
 // ---------- my own ------------
 require("dotenv").config();
 const db = require("./DB/DB");
+const cors = require("cors");
 
 // ----------- Initial Router --------------
 const indexRouter = require("./routes/index");
@@ -17,6 +18,7 @@ const userRouter = require("./routes/User");
 
 const app = express();
 
+app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
