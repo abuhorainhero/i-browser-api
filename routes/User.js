@@ -9,7 +9,7 @@ const {
   userGetOne,
   userUpdate,
   userDelete,
-} = require("../Controllers/userController");
+} = require("../Controllers/UserController");
 
 router.post("/create", userValidator, checkValidator, userCreate);
 router.get("/get-all", userGetAll);

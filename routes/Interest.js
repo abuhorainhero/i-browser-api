@@ -9,7 +9,7 @@ const {
   interestGetOne,
   interestUpdate,
   interestDelete,
-} = require("../Controllers/interestController");
+} = require("../Controllers/InterestController");
 
 router.post("/create", interestValidator, checkValidator, interestCreate);
 router.get("/get-all", interestGetAll);
