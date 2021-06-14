@@ -53,6 +53,10 @@ const userSchema = new Schema(
       trim: true,
     },
     // --- Firebase Token ---
+    firebaseToken: {
+      type: String,
+      trim: true,
+    }
   },
   {
     timestamps: true,

@@ -8,14 +8,6 @@ require("dotenv").config();
 const db = require("./DB/DB");
 const cors = require("cors");
 
-// ----------- Initial Router --------------
-const indexRouter = require("./routes/index");
-// ---------- My Built Routes --------------
-const countryRouter = require("./routes/Country");
-const cityRouter = require("./routes/City");
-const interestRouter = require("./routes/Interest");
-const userRouter = require("./routes/User");
-
 const app = express();
 
 app.use(cors());
@@ -25,11 +17,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+
+// ----------- Initial Router --------------
+const indexRouter = require("./routes/index");
 app.use("/", indexRouter);
+
+// ---------- My Built Routes --------------
+const countryRouter = require("./routes/Country");
+const cityRouter = require("./routes/City");
+const interestRouter = require("./routes/Interest");
+const userRouter = require("./routes/User");
+const bookmarkRouter = require("./routes/Bookmark")
 // ---
 app.use("/api/country", countryRouter);
 app.use("/api/city", cityRouter);
 app.use("/api/interest", interestRouter);
 app.use("/api/user", userRouter);
+app.use("/api/bookmark", bookmarkRouter);
 
 module.exports = app;
