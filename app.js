@@ -38,7 +38,6 @@ app.use("/api/interest", interestRouter);
 app.use("/api/user", userRouter);
 app.use("/api/bookmark", bookmarkRouter);
 app.use("/api/news", newsRouter);
-// ---- Today ----
 app.use("/api/withdrawal-method", withdrawalMethodRouter);
 app.use("/api/withdrawal-request", withdrawalRequestRouter);
 
