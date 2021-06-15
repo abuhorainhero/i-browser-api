@@ -27,8 +27,10 @@ const countryRouter = require("./routes/Country");
 const cityRouter = require("./routes/City");
 const interestRouter = require("./routes/Interest");
 const userRouter = require("./routes/User");
-const bookmarkRouter = require("./routes/Bookmark")
-const newsRouter = require("./routes/News")
+const bookmarkRouter = require("./routes/Bookmark");
+const newsRouter = require("./routes/News");
+const withdrawalMethodRouter = require("./routes/WithdrawalMethod");
+const withdrawalRequestRouter = require("./routes/WithdrawalRequest");
 // ---
 app.use("/api/country", countryRouter);
 app.use("/api/city", cityRouter);
@@ -36,5 +38,8 @@ app.use("/api/interest", interestRouter);
 app.use("/api/user", userRouter);
 app.use("/api/bookmark", bookmarkRouter);
 app.use("/api/news", newsRouter);
+// ---- Today ----
+app.use("/api/withdrawal-method", withdrawalMethodRouter);
+app.use("/api/withdrawal-request", withdrawalRequestRouter);
 
 module.exports = app;
