@@ -31,6 +31,10 @@ const bookmarkRouter = require("./routes/Bookmark");
 const newsRouter = require("./routes/News");
 const withdrawalMethodRouter = require("./routes/WithdrawalMethod");
 const withdrawalRequestRouter = require("./routes/WithdrawalRequest");
+const adsRouter = require("./routes/Ads")
+const viewedAdsRouter = require("./routes/ViewedAds")
+const specialRevenueSiteRouter = require("./routes/SpecialRevenueSite")
+const otherRevenueSiteRouter = require("./routes/OtherRevenueSite")
 // ---
 app.use("/api/country", countryRouter);
 app.use("/api/city", cityRouter);
@@ -40,5 +44,9 @@ app.use("/api/bookmark", bookmarkRouter);
 app.use("/api/news", newsRouter);
 app.use("/api/withdrawal-method", withdrawalMethodRouter);
 app.use("/api/withdrawal-request", withdrawalRequestRouter);
+app.use("/api/ads", adsRouter);
+app.use("/api/viewed-ads", viewedAdsRouter);
+app.use("/api/special-revenue-site", specialRevenueSiteRouter);
+app.use("/api/other-revenue-site", otherRevenueSiteRouter);
 
 module.exports = app;
