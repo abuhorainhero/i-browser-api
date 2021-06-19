@@ -9,6 +9,14 @@ const adsValidator = [
         .isString()
         .withMessage(": Should be a string.!"),
 
+    check("title")
+        .trim()
+        .exists({ checkNull: true, checkFalsy: true })
+        .withMessage(": Can not be empty.!")
+        .bail()
+        .isString()
+        .withMessage(": Should be a string.!"),
+
     check("minVisitingTime")
         .trim()
         .exists({ checkNull: true, checkFalsy: true })

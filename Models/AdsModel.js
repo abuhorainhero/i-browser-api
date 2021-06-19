@@ -8,12 +8,16 @@ const adsSchema = new Schema(
             type: String,
             trim: true,
         },
-        minVisitingTime: {      // seconds
-            type: Number,
+        title: {
+            type: String,
             trim: true,
         },
         instruction: {
             type: String,
+            trim: true,
+        },
+        minVisitingTime: {      // seconds
+            type: Number,
             trim: true,
         },
         revenue: {
