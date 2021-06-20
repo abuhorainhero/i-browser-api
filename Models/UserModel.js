@@ -11,8 +11,14 @@ const userSchema = new Schema(
     phone: {
       type: String,
       trim: true,
+      unique: true
     },
     email: {
+      type: String,
+      trim: true,
+      unique: true
+    },
+    password: {
       type: String,
       trim: true,
     },

@@ -33,6 +33,16 @@ const userValidator = [
     .isEmail()
     .withMessage(": Should be a Email.!"),
 
+    check("password")
+    .trim()
+    .exists({ checkNull: true, checkFalsy: true })
+    .withMessage(": Can not be empty.!")
+    .isLength({ min: 6 })
+    .withMessage(": Length minimum 6 characters.!")
+    .bail()
+    .isString()
+    .withMessage(": Should be a string.!"),
+
   check("gender")
     .trim()
     .exists({ checkNull: true, checkFalsy: true })

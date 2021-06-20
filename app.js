@@ -35,6 +35,7 @@ const adsRouter = require("./routes/Ads")
 const viewedAdsRouter = require("./routes/ViewedAds")
 const specialRevenueSiteRouter = require("./routes/SpecialRevenueSite")
 const otherRevenueSiteRouter = require("./routes/OtherRevenueSite")
+const adminRouter = require("./routes/Admin")
 // ---
 app.use("/api/country", countryRouter);
 app.use("/api/city", cityRouter);
@@ -48,5 +49,6 @@ app.use("/api/ads", adsRouter);
 app.use("/api/viewed-ads", viewedAdsRouter);
 app.use("/api/special-revenue-site", specialRevenueSiteRouter);
 app.use("/api/other-revenue-site", otherRevenueSiteRouter);
+app.use("/api/admin", adminRouter);
 
 module.exports = app;
