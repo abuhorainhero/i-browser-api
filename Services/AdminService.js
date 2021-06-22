@@ -20,10 +20,17 @@ const admin_delete = (id) => {
   return adminModel.deleteOne({ _id: id });
 };
 
+
+const findAdminByEmail = (email) => {
+  return adminModel.findOne({ email: email });
+}
+
+
 module.exports = {
   admin_create,
   admin_get_all,
   admin_get_one,
   admin_update,
   admin_delete,
+  findAdminByEmail
 };

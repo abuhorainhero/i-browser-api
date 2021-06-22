@@ -20,10 +20,17 @@ const user_delete = (id) => {
   return userModel.deleteOne({ _id: id });
 };
 
+
+const findUserByEmail = (email) => {
+  return userModel.findOne({ email: email });
+}
+
+
 module.exports = {
   user_create,
   user_get_all,
   user_get_one,
   user_update,
   user_delete,
+  findUserByEmail
 };

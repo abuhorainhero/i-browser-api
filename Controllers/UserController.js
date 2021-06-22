@@ -4,6 +4,7 @@ const {
   user_get_one,
   user_update,
   user_delete,
+  findUserByEmail
 } = require("../Services/UserService");
 
 const userCreate = async (req, res, next) => {
@@ -114,10 +115,52 @@ const userDelete = async (req, res, next) => {
   }
 };
 
+
+// -------------------- login user --------------
+const loginController = async (req, res, next) => {
+  try {
+    console.log(req.body);
+    const user = await findUserByEmail(req.body.email);
+
+    if (!user) {
+      return res.status(400).json({
+        error: true,
+        user: null,
+        message: `${req.body.email}, This user is not Register.!`,
+      });
+    }
+    const matchPassword = await (req.body.password === user.password);
+    if (!matchPassword) {
+      return res.status(400).json({
+        error: true,
+        user: null,
+        message: `${req.body.password}, This password is incorrect..!`,
+      });
+    }
+    const userObj = JSON.parse(JSON.stringify(user));
+
+
+    return res.status(200).json({
+      error: false,
+      user: userObj,
+      message: "user login successfully",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error,
+      user: null,
+      message: "user not login.!",
+    });
+  }
+};
+
+
+
 module.exports = {
   userCreate,
   userGetAll,
   userGetOne,
   userUpdate,
   userDelete,
+  loginController
 };
