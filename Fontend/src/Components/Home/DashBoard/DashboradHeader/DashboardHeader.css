@@ -1,0 +1,49 @@
+/* ------------------------- Abu Horain - Media quary ----------------- */
+@media only screen and (max-width: 470px) {
+  header.dashboard_header{
+    width: 100% !important;
+  }
+}
+
+/* ---------- mamun bhai --------- */
+header.dashboard_header {
+  background-color: #ffffff;
+  height: 3rem;
+  position: fixed;
+  top: 0;
+  z-index: 12;
+  box-shadow: 0px 1px 5px #c3c3c3;
+  /* width: 84%; */
+}
+ul.header_ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+svg.MuiSvgIcon-root.header_icon {
+  font-size: 2rem;
+  margin: 0.5rem;
+  color: black;
+}
+ul.header_ul:last-child {
+  margin-right: 2rem;
+}
+.table {
+  text-align: center;
+}
+.table tbody tr td {
+  text-align: center;
+}
+.table_div {
+  box-shadow: 0 0 9px #bbb3b3;
+}
+.page_name {
+  margin-right: auto;
+  margin-left: 1rem;
+  padding-top: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
