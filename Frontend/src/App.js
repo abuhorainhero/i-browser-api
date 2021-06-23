@@ -33,7 +33,7 @@ function App() {
     if (loggedInUser?._id) {
       axios
         .get(
-          `https://murmuring-hollows-53734.herokuapp.com/user/user-read-one/${loggedInUser._id}`
+          `/api/admin/get-one/${loggedInUser._id}`
         )
         .then((res) => {
           // console.log(res.data.user)
@@ -76,14 +76,14 @@ function App() {
             <DashBoard />
           </PrivateRoute>
 
-          
+
           <Route exact path="/login">
             <LoginForm />
           </Route>
           <PrivateRoute exact path="/profile">
             <Profile />
           </PrivateRoute>
-          
+
           <Route path="*">
             <NotFound />
           </Route>
