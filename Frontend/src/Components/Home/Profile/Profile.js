@@ -115,13 +115,13 @@ const AccountSetting = (props) => {
     };
 
     console.log(data);
-    if (data.number.length >= 10) {
-      if (data.password === data.confirmPass) {
-        if (data.password.length > 3) {
+    if (data?.number?.length >= 10) {
+      if (data?.password === data?.confirmPass) {
+        if (data?.password?.length > 3) {
           setProcessing(true);
           axios
             .patch(
-              `https://murmuring-hollows-53734.herokuapp.com/user/user-update-one/${accessbility._id}`,
+              `/api/admin/update-one/${accessbility._id}`,
               data
             )
             .then((res) => {

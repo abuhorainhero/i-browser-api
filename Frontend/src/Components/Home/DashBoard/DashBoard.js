@@ -23,7 +23,7 @@ const DashBoard = (props) => {
   const [citys, setCitys] = useState([]);
 
   useEffect(() => {
-    axios.get('https://i-browser-api.herokuapp.com/api/user/get-all')
+    axios.get('/api/user/get-all')
       .then(res => {
         const { user, error, message } = res.data
         setUsers(user)
@@ -31,7 +31,7 @@ const DashBoard = (props) => {
         console.error(err)
       });
 
-    axios.get('https://i-browser-api.herokuapp.com/api/ads/get-all')
+    axios.get('/api/ads/get-all')
       .then(res => {
         const { ads, error, message } = res.data
         setAds(ads)
@@ -39,7 +39,7 @@ const DashBoard = (props) => {
         console.error(err)
       });
 
-    axios.get('https://i-browser-api.herokuapp.com/api/country/get-all')
+    axios.get('/api/country/get-all')
       .then(res => {
         const { country, error, message } = res.data
         setCountrys(country)
@@ -47,7 +47,7 @@ const DashBoard = (props) => {
         console.error(err)
       });
 
-    axios.get('https://i-browser-api.herokuapp.com/api/city/get-all')
+    axios.get('/api/city/get-all')
       .then(res => {
         const { city, error, message } = res.data
         setCitys(city)
@@ -68,7 +68,7 @@ const DashBoard = (props) => {
       <div className={props.sidebarActive ? "col-md-10" : "col-md-12"}>
         <DashboardHeader name={"Dashboard"} />
         <div className="dashboard_content mt-4">
-          {accessbility.role === "Admin" ? (
+          {/* {accessbility.role === "Admin" ? ( */}
             <section className="content_box_full">
               <section className="row sales_activity p-4 mb-4">
 
@@ -76,7 +76,7 @@ const DashBoard = (props) => {
                   <div className=" p-5 sales_box box box1 d-flex flex-column align-items-center text-center">
                     <h4 className="">Total Users</h4>
                     <h3 className="text-light mb-0">
-                      {users.length}
+                      {users?.length}
                     </h3>
                   </div>
                 </div>
@@ -85,7 +85,7 @@ const DashBoard = (props) => {
                   <div className=" p-5 sales_box box box2 d-flex flex-column align-items-center text-center">
                     <h4 className="">Total Ads</h4>
                     <h4 className="text-light mb-0">
-                      {ads.length}
+                      {ads?.length}
                     </h4>
                   </div>
                 </div>
@@ -94,7 +94,7 @@ const DashBoard = (props) => {
                   <div className="p-5 sales_box box box4 d-flex flex-column align-items-center">
                     <h4 className="text-center">Total Countrys</h4>
                     <h3 className="text-white">
-                      {countrys.length}
+                      {countrys?.length}
                     </h3>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ const DashBoard = (props) => {
                   <div className="p-5 sales_box box box3 d-flex flex-column align-items-center text-center">
                     <h4 className="text-center">Total City's</h4>
                     <h3 className="text-white ">
-                      {citys.length}
+                      {citys?.length}
                     </h3>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ const DashBoard = (props) => {
 
               <div className="">
 
-                {users.length > 0 && (
+                {users?.length > 0 && (
                   <div className="table_div">
                     <Table className="" striped bordered hover size="sm">
                       <thead>
@@ -148,9 +148,9 @@ const DashBoard = (props) => {
               </div>
 
             </section>
-          ) : (
+          {/* ) : (
             <NotAccess />
-          )}
+          )} */}
         </div>
       </div>
       <NotificationContainer />

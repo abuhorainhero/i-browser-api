@@ -37,7 +37,7 @@ const Admin = (props) => {
         if (JSON.stringify(selectItem) !== "{}") {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/admin/update-one/${selectItem._id}`,
+                    `/api/admin/update-one/${selectItem._id}`,
                     data
                 )
                 .then((res) => {
@@ -56,7 +56,7 @@ const Admin = (props) => {
         } else {
             axios
                 .post(
-                    "https://i-browser-api.herokuapp.com/api/admin/create",
+                    "/api/admin/create",
                     data.role === "Admin"
                         ? {
                             ...data,
@@ -94,7 +94,7 @@ const Admin = (props) => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/admin/get-all")
+            .get("/api/admin/get-all")
             .then((res) => {
                 const { admin, error, message } = res.data;
                 setAdmins(admin);
@@ -119,7 +119,7 @@ const Admin = (props) => {
     const handleDelete = (id) => {
         axios
             .delete(
-                `https://i-browser-api.herokuapp.com/api/admin/delete-one/${id}`
+                `/api/admin/delete-one/${id}`
             )
             .then((res) => {
                 const { admin, error, message } = res.data;
@@ -473,14 +473,14 @@ const Admin = (props) => {
 
                     {/* Table */}
                     <div className="mt-3">
-                        {admins.length > 0 && (
+                        {admins?.length > 0 && (
                             <>
                                 <h2 className="text-center mb-4 mt-5">Present User's</h2>
 
                                 <h4>
                                     {" "}
                                     Admin -{" "}
-                                    {admins.filter((user) => user.role === "Admin").length}
+                                    {admins?.filter((user) => user.role === "Admin")?.length}
                                 </h4>
                                 <div className="table_div">
                                     <Table className="table-responsive" className="table-responsive" striped bordered hover size="sm">
@@ -535,7 +535,7 @@ const Admin = (props) => {
                                 <h4>
                                     {" "}
                                     Moderator -{" "}
-                                    {admins.filter((user) => user.role === "Moderator").length}
+                                    {admins?.filter((user) => user.role === "Moderator")?.length}
                                 </h4>
                                 <div className="table_div">
                                     <Table className="table-responsive" striped bordered hover size="sm">

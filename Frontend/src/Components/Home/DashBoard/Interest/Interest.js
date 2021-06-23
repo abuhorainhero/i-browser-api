@@ -34,7 +34,7 @@ const Interest = (props) => {
         if (interestUpdate) {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/interest/update-one/${interestUpdate._id}`,
+                    `/api/interest/update-one/${interestUpdate._id}`,
                     data
                 )
                 .then((res) => {
@@ -54,7 +54,7 @@ const Interest = (props) => {
                 });
         } else {
             axios
-                .post("https://i-browser-api.herokuapp.com/api/interest/create", data)
+                .post("/api/interest/create", data)
                 .then((res) => {
                     console.log(res);
                     const { interest, error, message } = res.data;
@@ -80,7 +80,7 @@ const Interest = (props) => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/interest/get-all")
+            .get("/api/interest/get-all")
             .then((res) => {
                 const { interest, error, message } = res.data;
                 setInterest(interest);
@@ -96,7 +96,7 @@ const Interest = (props) => {
         console.log("update ID ; ", id);
 
         axios
-            .get(`https://i-browser-api.herokuapp.com/api/interest/get-one/${id}`)
+            .get(`/api/interest/get-one/${id}`)
             .then((res) => {
                 console.log(res);
                 const { interest, error, message } = res.data;
@@ -113,7 +113,7 @@ const Interest = (props) => {
 
         axios
             .delete(
-                `https://i-browser-api.herokuapp.com/api/interest/delete-one/${id}`
+                `/api/interest/delete-one/${id}`
             )
             .then((res) => {
                 console.log(res);
@@ -180,7 +180,7 @@ const Interest = (props) => {
 
                     <div className="my-3">
                         <h2 className="text-center mb-4 mt-5">Present Interest</h2>
-                        {interest.length > 0 && (
+                        {interest?.length > 0 && (
                             <div className="table_div">
 
                                 <Table className="">

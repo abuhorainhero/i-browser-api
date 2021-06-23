@@ -33,7 +33,7 @@ const Users = (props) => {
     const [accessbility, setAccessbility] = useContext(UserContext);
 
     useEffect(() => {
-        axios.get('https://i-browser-api.herokuapp.com/api/user/get-all')
+        axios.get('/api/user/get-all')
             .then(res => {
                 const { user, error, message } = res.data
                 setUsers(user)
@@ -41,7 +41,7 @@ const Users = (props) => {
                 console.error(err)
             });
 
-        axios.get('https://i-browser-api.herokuapp.com/api/country/get-all')
+        axios.get('/api/country/get-all')
             .then(res => {
                 const { country, error, message } = res.data
                 setCountry(country)
@@ -49,7 +49,7 @@ const Users = (props) => {
                 console.error(err)
             });
 
-        axios.get('https://i-browser-api.herokuapp.com/api/city/get-all')
+        axios.get('/api/city/get-all')
             .then(res => {
                 const { city, error, message } = res.data
                 setCity(city)
@@ -72,7 +72,7 @@ const Users = (props) => {
     // ------------------------------- modal / popup function end -------------------------------
 
     const handleUser = (id) => {
-        axios.get(`https://i-browser-api.herokuapp.com/api/user/get-one/${id}`)
+        axios.get(`/api/user/get-one/${id}`)
             .then(res => {
                 const { user, error, message } = res.data
                 setModalUser(user);
@@ -97,7 +97,7 @@ const Users = (props) => {
 
                     <div className="my-3">
                         <h2 className="text-center mb-4 mt-5">All Users</h2>
-                        {users.length > 0 && (
+                        {users?.length > 0 && (
                             <div className="table_div">
                                 <Table className="" striped bordered hover size="sm">
                                     <thead>

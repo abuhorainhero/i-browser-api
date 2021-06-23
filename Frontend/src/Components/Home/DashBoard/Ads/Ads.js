@@ -35,7 +35,7 @@ const Ads = (props) => {
         if (adsUpdate) {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/ads/update-one/${adsUpdate._id}`,
+                    `/api/ads/update-one/${adsUpdate._id}`,
                     data
                 )
                 .then((res) => {
@@ -55,7 +55,7 @@ const Ads = (props) => {
                 });
         } else {
             axios
-                .post("https://i-browser-api.herokuapp.com/api/ads/create", data)
+                .post("/api/ads/create", data)
                 .then((res) => {
                     console.log(res);
                     const { ads, error, message } = res.data;
@@ -81,7 +81,7 @@ const Ads = (props) => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/ads/get-all")
+            .get("/api/ads/get-all")
             .then((res) => {
                 const { ads, error, message } = res.data;
                 setAds(ads);
@@ -97,7 +97,7 @@ const Ads = (props) => {
         console.log("update ID ; ", id);
 
         axios
-            .get(`https://i-browser-api.herokuapp.com/api/ads/get-one/${id}`)
+            .get(`/api/ads/get-one/${id}`)
             .then((res) => {
                 console.log(res);
                 const { ads, error, message } = res.data;
@@ -114,7 +114,7 @@ const Ads = (props) => {
 
         axios
             .delete(
-                `https://i-browser-api.herokuapp.com/api/ads/delete-one/${id}`
+                `/api/ads/delete-one/${id}`
             )
             .then((res) => {
                 console.log(res);
@@ -255,7 +255,7 @@ const Ads = (props) => {
 
                     <div className="my-3">
                         <h2 className="text-center mb-4 mt-5">Present Ad's</h2>
-                        {ads.length > 0 && (
+                        {ads?.length > 0 && (
                             <div className="table_div">
                                 <Table className="table-responsive" striped bordered hover size="sm">
                                     <thead>

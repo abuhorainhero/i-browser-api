@@ -32,7 +32,7 @@ const City = (props) => {
         if (cityUpdate) {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/city/update-one/${cityUpdate._id}`,
+                    `/api/city/update-one/${cityUpdate._id}`,
                     data
                 )
                 .then((res) => {
@@ -52,7 +52,7 @@ const City = (props) => {
                 });
         } else {
             axios
-                .post("https://i-browser-api.herokuapp.com/api/city/create", data)
+                .post("/api/city/create", data)
                 .then((res) => {
                     console.log(res);
                     const { city, error, message } = res.data;
@@ -78,7 +78,7 @@ const City = (props) => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/city/get-all")
+            .get("/api/city/get-all")
             .then((res) => {
                 const { city, error, message } = res.data;
                 setCity(city);
@@ -94,7 +94,7 @@ const City = (props) => {
         console.log("update ID ; ", id);
 
         axios
-            .get(`https://i-browser-api.herokuapp.com/api/city/get-one/${id}`)
+            .get(`/api/city/get-one/${id}`)
             .then((res) => {
                 console.log(res);
                 const { city, error, message } = res.data;
@@ -111,7 +111,7 @@ const City = (props) => {
 
         axios
             .delete(
-                `https://i-browser-api.herokuapp.com/api/city/delete-one/${id}`
+                `/api/city/delete-one/${id}`
             )
             .then((res) => {
                 console.log(res);
@@ -200,7 +200,7 @@ const City = (props) => {
 
                     <div className="my-3">
                         <h2 className="text-center mb-4 mt-5">Present City's</h2>
-                        {city.length > 0 && (
+                        {city?.length > 0 && (
                             <div className="table_div">
                                 <Table className="table-responsive" striped bordered hover size="sm">
                                     <thead>
