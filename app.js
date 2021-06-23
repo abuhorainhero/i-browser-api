@@ -17,6 +17,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// --------------- initial setup for live site ---------------
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('Frontend/build'));
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    })
+}
+
 
 // ----------- Initial Router --------------
 const indexRouter = require("./routes/index");
@@ -37,18 +45,19 @@ const specialRevenueSiteRouter = require("./routes/SpecialRevenueSite")
 const otherRevenueSiteRouter = require("./routes/OtherRevenueSite")
 const adminRouter = require("./routes/Admin")
 // ---
-app.use("/api/country", countryRouter);
-app.use("/api/city", cityRouter);
-app.use("/api/interest", interestRouter);
+app.use("/api/admin", adminRouter);
 app.use("/api/user", userRouter);
-app.use("/api/bookmark", bookmarkRouter);
+app.use("/api/city", cityRouter);
+app.use("/api/country", countryRouter);
 app.use("/api/news", newsRouter);
+
+app.use("/api/interest", interestRouter);
+app.use("/api/bookmark", bookmarkRouter);
 app.use("/api/withdrawal-method", withdrawalMethodRouter);
 app.use("/api/withdrawal-request", withdrawalRequestRouter);
 app.use("/api/ads", adsRouter);
 app.use("/api/viewed-ads", viewedAdsRouter);
 app.use("/api/special-revenue-site", specialRevenueSiteRouter);
 app.use("/api/other-revenue-site", otherRevenueSiteRouter);
-app.use("/api/admin", adminRouter);
 
 module.exports = app;
