@@ -32,12 +32,9 @@ function App() {
     // console.log('hit api')
     if (loggedInUser?._id) {
       axios
-        .get(
-          `/api/admin/get-one/${loggedInUser._id}`
-        )
+        .get(`/api/admin/get-one/${loggedInUser._id}`)
         .then((res) => {
-          // console.log(res.data.user)
-          setAccessbility(res.data.user);
+          setAccessbility(res.data.admin);
         })
 
     }

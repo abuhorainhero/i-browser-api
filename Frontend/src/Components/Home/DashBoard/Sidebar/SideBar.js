@@ -81,7 +81,7 @@ const SideBar = (props) => {
           </ul>
 
           <ul className="side_bar_ul">
-            {accessbility.role === "Admin" && (<>
+            {accessbility?.role === "Admin" && (<>
               <Link id="link_a" to="/dashboard">
                 <li
                   className={`side_bar_li ${location.pathname === "/dashboard" && "active"
