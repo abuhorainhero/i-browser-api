@@ -25,7 +25,8 @@ const DashBoard = (props) => {
   useEffect(() => {
     axios.get('/api/user/get-all')
       .then(res => {
-        const { user, error, message } = res.data
+        const { user, error, message } = res.data;
+        console.log(user)
         setUsers(user)
       }).catch(err => {
         console.error(err)
