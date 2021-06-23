@@ -7,8 +7,7 @@
     "server": "node ./bin/www",
     "client": "npm start --prefix Frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Frontend && npm run build --prefix Frontend"
-
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd Frontend && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
     "concurrently": "^6.2.0",
