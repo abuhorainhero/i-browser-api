@@ -36,10 +36,8 @@ function App() {
         .then((res) => {
           setAccessbility(res.data.admin);
         })
-
     }
   }, [loggedInUser])
-
 
 
   return (
