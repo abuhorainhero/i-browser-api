@@ -23,7 +23,7 @@ const DashBoard = (props) => {
   const [citys, setCitys] = useState([]);
 
   useEffect(() => {
-    axios.get('https://i-browser-api.herokuapp.com/api/user/get-all')
+    axios.get('/api/user/get-all')
       .then(res => {
         const { user, error, message } = res.data;
         console.log(user)

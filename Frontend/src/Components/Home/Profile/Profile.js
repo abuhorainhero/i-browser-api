@@ -47,10 +47,10 @@ const Profile = (props) => {
 
                 <div className="profile-usertitle">
                   <div className="profile-usertitle-name">
-                    {accessbility.name}
+                    {accessbility?.name}
                   </div>
                   <div className="profile-usertitle-job">
-                    {accessbility.role}
+                    {accessbility?.role}
                   </div>
                 </div>
                 <div className="profile-usermenu">
@@ -108,26 +108,23 @@ const AccountSetting = (props) => {
   const onSubmit = (data) => {
     const newData = {
       ...accessbility,
-      name: data.name,
-      number: data.number,
-      email: data.email,
-      password: data.password,
+      ...data
     };
 
     console.log(data);
-    if (data?.number?.length >= 10) {
+    if (data?.phone?.length >= 10) {
       if (data?.password === data?.confirmPass) {
         if (data?.password?.length > 3) {
           setProcessing(true);
           axios
             .patch(
               `/api/admin/update-one/${accessbility._id}`,
-              data
+              newData
             )
             .then((res) => {
-              const { user, error, token, message } = res.data;
-              console.log(user);
-              setAccessbility(user);
+              const { admin, error, message } = res.data;
+              console.log(admin);
+              setAccessbility(admin);
               createNotification("success", "SUCCESSFULLY", `${message}`);
               setEditOn(false);
               setProcessing(false);
@@ -181,21 +178,21 @@ const AccountSetting = (props) => {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="number" className="col-sm-4 control-label">
+                  <label htmlFor="phone" className="col-sm-4 control-label">
                     Mobile<label className="text-danger">*</label>
                   </label>
                   <div className="col-sm-8">
                     <input
                       ref={register({ required: true })}
-                      type="number"
+                      type="text"
                       className="form-control input-sm no_special_char_no_space"
-                      id="number"
-                      name="number"
-                      defaultValue={accessbility?.number}
+                      id="phone"
+                      name="phone"
+                      defaultValue={accessbility?.phone}
                       placeholder="Enter your number"
                     />
 
-                    {errors.number && (
+                    {errors.phone && (
                       <span className="text-danger">field is required</span>
                     )}
                   </div>
@@ -222,8 +219,29 @@ const AccountSetting = (props) => {
                 </div>
               </div>
               <div className="col-md-6">
+
                 <div className="form-group">
-                  <label htmlFor="password" className="col-sm-4 control-label">
+                  <label htmlFor="gender" className="col-sm-6 control-label">
+                    Gender<label className="text-danger">*</label>
+                  </label>
+                  <select
+                    name="gender"
+                    id="gender"
+                    className="form-control form-select"
+                    ref={register({ required: true })}
+                    value={accessbility?.gender}
+                  >
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Others</option>
+                  </select>
+                  {errors.gender && (
+                    <span className="text-danger">User gender is required</span>
+                  )}
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="password" className="col-sm-6 control-label">
                     Password<label className="text-danger">*</label>
                   </label>
                   <div className="col-sm-8">
@@ -316,7 +334,7 @@ const AccountSetting = (props) => {
                       id="name"
                       name="name"
                       placeholder=""
-                      value={accessbility.name}
+                      value={accessbility?.name}
                       readOnly
                     />
                     <span
@@ -327,17 +345,17 @@ const AccountSetting = (props) => {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="number" className="col-sm-4 control-label">
+                  <label htmlFor="phone" className="col-sm-4 control-label">
                     Mobile<label className="text-danger">*</label>
                   </label>
                   <div className="col-sm-8">
                     <input
                       type="text"
                       className="form-control input-sm no_special_char_no_space"
-                      id="number"
-                      name="number"
+                      id="phone"
+                      name="phone"
                       placeholder=""
-                      value={accessbility.number}
+                      value={accessbility.phone}
                       readOnly
                     />
                     <span
