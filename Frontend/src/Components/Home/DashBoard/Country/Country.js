@@ -80,6 +80,7 @@ const Country = (props) => {
         axios
             .get("/api/country/get-all")
             .then((res) => {
+                console.log("country 83 = ", res)
                 const { country, error, message } = res.data;
                 setCountry(country);
             })
