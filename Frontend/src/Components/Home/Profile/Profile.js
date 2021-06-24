@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Profile.css";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import DashboardHeader from "../DashBoard/DashboradHeader/DashboardHeader";
@@ -28,6 +28,7 @@ const Profile = (props) => {
     history.replace("/");
   };
 
+ 
   return (
     <div className="row">
       {props.sidebarActive && (
@@ -148,6 +149,12 @@ const AccountSetting = (props) => {
       createNotification("info", "MOBILE", ` Number Minimum 11 Digit`);
     }
   };
+
+  useEffect(() => {
+    setAccessbility(accessbility)
+  }, [onSubmit])
+
+
 
   console.log(accessbility);
   return (

@@ -38,8 +38,6 @@ function App() {
         })
 
     }
-
-
   }, [loggedInUser])
 
 
@@ -73,15 +71,14 @@ function App() {
             <DashBoard />
           </PrivateRoute>
 
-
-          <Route exact path="/login">
+          <Route path="/login">
             <LoginForm />
           </Route>
-          <PrivateRoute exact path="/profile">
+          <PrivateRoute path="/profile">
             <Profile />
           </PrivateRoute>
 
-          {/* <Route path="*"> <NotFound /> </Route> */}
+          <Route path="*"> <NotFound /> </Route>
         </Switch>
       </Router>
     </UserContext.Provider>

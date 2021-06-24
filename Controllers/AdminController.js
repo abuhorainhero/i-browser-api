@@ -73,7 +73,17 @@ const adminUpdate = async (req, res, next) => {
     const info = req.body;
     const { id } = req.params;
     console.log(id, info);
-    const admin = await admin_update(id, info);
+    const adminUp = await admin_update(id, info);
+
+    if (!adminUp) {
+      return res.status(401).json({
+        error: true,
+        admin: null,
+        message: "admin not successfully",
+      });
+    }
+
+    const admin = await admin_get_one(id);
     const adminObj = JSON.parse(JSON.stringify(admin));
 
     if (adminObj.ok) {
