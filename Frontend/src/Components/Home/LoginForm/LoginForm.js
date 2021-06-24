@@ -6,42 +6,42 @@ import { UserContext } from "../../../App";
 import { useHistory, useLocation } from "react-router";
 import axios from "axios";
 import LocalStorage from "../LocalStorage";
-import {NotificationContainer} from 'react-notifications';
+import { NotificationContainer } from 'react-notifications';
 import createNotification from "../Notification/Notification";
 
 
 const LoginForm = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const [loader, setLoader] = useState(false);
-  const [ loggedInUser, setLoggedInUser ] = LocalStorage( 'loggedInUser', {} );
-  const [ accessbility, setAccessbility ] = useContext(UserContext);
+  const [loggedInUser, setLoggedInUser] = LocalStorage('loggedInUser', {});
+  const [accessbility, setAccessbility] = useContext(UserContext);
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
-  
+
 
   const onSubmit = (data) => {
     if (data.email && data.password) {
       axios
         .post(`/api/admin/admin-login`, data)
         .then((res) => {
-          console.log(res.data)
-          createNotification('success','LOG IN','Successfully !');
-          setLoggedInUser({_id:res.data.admin._id})
+          console.log("loginFrom 28 = ", res.data)
+          createNotification('success', 'LOG IN', 'Successfully !');
+          setLoggedInUser({ _id: res.data.admin._id })
           setAccessbility(res.data.admin)
-       
-        //   লগইন successfull হলে replace করতে হবে from এ
-            setTimeout(()=>{
-              history.replace(from);
-            },1000)
-            setLoader(false)
+
+          //   লগইন successfull হলে replace করতে হবে from এ
+          setTimeout(() => {
+            history.replace(from);
+          }, 1000)
+          setLoader(false)
         })
         .catch((err) => {
           console.log(err.response)
-            setLoader(false)
-          createNotification('warning',`${err.response?.data.message}`,'')
-   
-       
+          setLoader(false)
+          createNotification('warning', `${err.response?.data.message}`, '')
+
+
         });
 
       // ইনপুট এর পাশে লোডিং আর জন্য এটা; যখন ডাটা পোস্ট হবে তখন setLoader(false) করেতে হবে
@@ -49,7 +49,7 @@ const LoginForm = () => {
       // ইনপুট এর পাশে লোডিং আর জন্য এটা; যখন ডাটা পোস্ট হবে তখন setLoader(false) করেতে হবে
     }
   };
-  console.log( loggedInUser);
+  console.log(loggedInUser);
 
   return (
     <div className="login_back">
