@@ -3,10 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "frontend": "cd Frontend && npm start",
-    "api": "nodemon bin/www",
-    "dev": "concurrently --kill-others-on-fail \"npm run api\" \"npm run frontend\"",
-    "heroku-postbuild": "cd Frontend && npm install && npm run build"
+    "start": "node bin/www",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix Frontend && npm run build --prefix Frontend"
   },
   "dependencies": {
     "concurrently": "^6.2.0",
@@ -22,6 +20,7 @@
     "nodemon": "^2.0.7"
   },
   "engines": {
-    "node": "16.1.0"
+    "node": "16.1.0",
+    "npm": "7.12.0"
   }
 }
