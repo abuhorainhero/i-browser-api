@@ -36,7 +36,7 @@ const City = (props) => {
                     data
                 )
                 .then((res) => {
-                    console.log(res);
+                    console.log("city 39 =", res);
                     const { city, error, message } = res.data;
 
                     createNotification("success", `SUCCESSFULLY`, `${message}`);
@@ -54,7 +54,7 @@ const City = (props) => {
             axios
                 .post("/api/city/create", data)
                 .then((res) => {
-                    console.log(res);
+                    console.log("city 57 =", res);
                     const { city, error, message } = res.data;
 
                     createNotification("success", "SUCCESSFULLY", `${message}`);
@@ -80,6 +80,7 @@ const City = (props) => {
         axios
             .get("/api/city/get-all")
             .then((res) => {
+                console.log("city 83 =", res);
                 const { city, error, message } = res.data;
                 setCity(city);
             })
