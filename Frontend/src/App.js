@@ -81,9 +81,7 @@ function App() {
             <Profile />
           </PrivateRoute>
 
-          {/* <Route path="*">
-            <NotFound />
-          </Route> */}
+          <Route path="*"> <NotFound /> </Route>
         </Switch>
       </Router>
     </UserContext.Provider>
