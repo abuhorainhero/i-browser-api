@@ -25,13 +25,9 @@ const userValidator = [
     .trim()
     .exists({ checkNull: true, checkFalsy: true })
     .withMessage(": Can not be empty.!")
-    .isLength({ min: 12, max: 50 })
-    .withMessage(": Length minimum 12 && maximum 50 characters.!")
     .bail()
     .isString()
-    .withMessage(": Should be a string.!")
-    .isEmail()
-    .withMessage(": Should be a Email.!"),
+    .withMessage(": Should be a string.!"),
 
     check("password")
     .trim()
@@ -50,8 +46,6 @@ const userValidator = [
     .trim()
     .exists({ checkNull: true, checkFalsy: true })
     .withMessage(": Can not be empty.!")
-    .isLength({ min: 24 })
-    .withMessage(": minimum length 24 char.!")
     .bail()
     .isString()
     .withMessage(": Should be a string.!"),
@@ -60,8 +54,6 @@ const userValidator = [
     .trim()
     .exists({ checkNull: true, checkFalsy: true })
     .withMessage(": Can not be empty.!")
-    .isLength({ min: 24 })
-    .withMessage(": minimum length 24 char.!")
     .bail()
     .isString()
     .withMessage(": Should be a string.!"),
