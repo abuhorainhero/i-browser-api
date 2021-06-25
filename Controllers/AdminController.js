@@ -86,13 +86,12 @@ const adminUpdate = async (req, res, next) => {
     const admin = await admin_get_one(id);
     const adminObj = JSON.parse(JSON.stringify(admin));
 
-    if (adminObj.ok) {
-      return res.status(200).json({
-        error: false,
-        admin: adminObj,
-        message: "admin update successfully",
-      });
-    }
+    return res.status(200).json({
+      error: false,
+      admin: adminObj,
+      message: "admin update successfully",
+    });
+
   } catch (error) {
     return res.status(500).json({
       error: error,
