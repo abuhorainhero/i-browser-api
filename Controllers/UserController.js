@@ -11,7 +11,7 @@ const userCreate = async (req, res, next) => {
   try {
     const info = req.body;
     console.log(info);
-    const user = await user_create(info);
+    const user = await user_create({ ...info, walletAmount: 0, totalMinuteServed: 0, totalAdsViewed: 0 });
     const userObj = JSON.parse(JSON.stringify(user));
 
     return res.status(200).json({

@@ -5,7 +5,6 @@ import SideBar from "./Sidebar/SideBar";
 import { Form, Table } from "react-bootstrap";
 import NotAccess from "../NotAccess/NotAccess";
 import axios from "axios";
-import { Dropdown } from "react-bootstrap";
 import {
   NotificationContainer,
   NotificationManager,
@@ -58,6 +57,7 @@ const DashBoard = (props) => {
 
   }, [])
 
+  console.log("country = ", countrys)
 
   return (
     <div className="row">
@@ -70,85 +70,85 @@ const DashBoard = (props) => {
         <DashboardHeader name={"Dashboard"} />
         <div className="dashboard_content mt-4">
           {/* {accessbility.role === "Admin" ? ( */}
-            <section className="content_box_full">
-              <section className="row sales_activity p-4 mb-4">
+          <section className="content_box_full">
+            <section className="row sales_activity p-4 mb-4">
 
-                <div className="col-md-3">
-                  <div className=" p-5 sales_box box box1 d-flex flex-column align-items-center text-center">
-                    <h4 className="">Total Users</h4>
-                    <h3 className="text-light mb-0">
-                      {users?.length}
-                    </h3>
-                  </div>
+              <div className="col-md-3">
+                <div className=" p-5 sales_box box box1 d-flex flex-column align-items-center text-center">
+                  <h4 className="">Total Users</h4>
+                  <h3 className="text-light mb-0">
+                    {users?.length}
+                  </h3>
                 </div>
+              </div>
 
-                <div className="col-md-3">
-                  <div className=" p-5 sales_box box box2 d-flex flex-column align-items-center text-center">
-                    <h4 className="">Total Ads</h4>
-                    <h4 className="text-light mb-0">
-                      {ads?.length}
-                    </h4>
-                  </div>
+              <div className="col-md-3">
+                <div className=" p-5 sales_box box box2 d-flex flex-column align-items-center text-center">
+                  <h4 className="">Total Ads</h4>
+                  <h4 className="text-light mb-0">
+                    {ads?.length}
+                  </h4>
                 </div>
+              </div>
 
-                <div className="col-md-3 ">
-                  <div className="p-5 sales_box box box4 d-flex flex-column align-items-center">
-                    <h4 className="text-center">Total Countrys</h4>
-                    <h3 className="text-white">
-                      {countrys?.length}
-                    </h3>
-                  </div>
+              <div className="col-md-3 ">
+                <div className="p-5 sales_box box box4 d-flex flex-column align-items-center">
+                  <h4 className="text-center">Total Countrys</h4>
+                  <h3 className="text-white">
+                    {countrys?.length}
+                  </h3>
                 </div>
+              </div>
 
-                <div className="col-md-3 ">
-                  <div className="p-5 sales_box box box3 d-flex flex-column align-items-center text-center">
-                    <h4 className="text-center">Total City's</h4>
-                    <h3 className="text-white ">
-                      {citys?.length}
-                    </h3>
-                  </div>
+              <div className="col-md-3 ">
+                <div className="p-5 sales_box box box3 d-flex flex-column align-items-center text-center">
+                  <h4 className="text-center">Total City's</h4>
+                  <h3 className="text-white ">
+                    {citys?.length}
+                  </h3>
                 </div>
-
-              </section>
-
-              <div className="">
-
-                {users?.length > 0 && (
-                  <div className="table_div">
-                    <Table className="" striped bordered hover size="sm">
-                      <thead>
-                        <tr>
-                          <th> User</th>
-                          <th> Country</th>
-                          <th> Withdrawal Method</th>
-                          <th> Activity</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {users.map((info) => (
-                          <tr key={info._id} className="text-center">
-                            <td>
-                              {info.name}
-                            </td>
-                            <td>
-                              {info.countryId}
-                            </td>
-                            <td>
-                              {info.withdrawalMethodId}
-                            </td>
-                            <td>
-                              {"null"}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </Table>
-                  </div>
-                )}
-
               </div>
 
             </section>
+
+            <div className="">
+
+              {users?.length > 0 && (
+                <div className="table_div">
+                  <Table className="" striped bordered hover size="sm">
+                    <thead>
+                      <tr>
+                        <th> User</th>
+                        <th> Country</th>
+                        <th> Withdrawal Method</th>
+                        <th> Activity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {users.map((info) => (
+                        <tr key={info._id} className="text-center">
+                          <td>
+                            {info.name}
+                          </td>
+                          <td>
+                            {countrys?.find(coun => coun._id == info.countryId)?.name || info.countryId}
+                          </td>
+                          <td>
+                            {info.withdrawalMethodId}
+                          </td>
+                          <td>
+                            {"null"}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                </div>
+              )}
+
+            </div>
+
+          </section>
           {/* ) : (
             <NotAccess />
           )} */}

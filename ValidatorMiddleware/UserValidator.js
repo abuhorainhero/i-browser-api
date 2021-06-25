@@ -11,15 +11,15 @@ const userValidator = [
     .isString()
     .withMessage(": Should be a string.!"),
 
-  check("phone")
-    .trim()
-    .exists({ checkNull: true, checkFalsy: true })
-    .withMessage(": Can not be empty.!")
-    .isLength({ min: 10, max: 16 })
-    .withMessage(": Length minimum 10 && maximum 16 characters.!")
-    .bail()
-    .isString()
-    .withMessage(": Should be a string.!"),
+  // check("phone")
+  //   .trim()
+  //   .exists({ checkNull: true, checkFalsy: true })
+  //   .withMessage(": Can not be empty.!")
+  //   .isLength({ min: 10, max: 16 })
+  //   .withMessage(": Length minimum 10 && maximum 16 characters.!")
+  //   .bail()
+  //   .isString()
+  //   .withMessage(": Should be a string.!"),
 
   check("email")
     .trim()
@@ -36,20 +36,15 @@ const userValidator = [
     check("password")
     .trim()
     .exists({ checkNull: true, checkFalsy: true })
-    .withMessage(": Can not be empty.!")
-    .isLength({ min: 6 })
-    .withMessage(": Length minimum 6 characters.!")
-    .bail()
-    .isString()
-    .withMessage(": Should be a string.!"),
+    .withMessage(": Can not be empty.!"),
 
-  check("gender")
-    .trim()
-    .exists({ checkNull: true, checkFalsy: true })
-    .withMessage(": Can not be empty.!")
-    .bail()
-    .isString()
-    .withMessage(": Should be a string.!"),
+  // check("gender")
+  //   .trim()
+  //   .exists({ checkNull: true, checkFalsy: true })
+  //   .withMessage(": Can not be empty.!")
+  //   .bail()
+  //   .isString()
+  //   .withMessage(": Should be a string.!"),
 
   check("countryId")
     .trim()
@@ -71,41 +66,36 @@ const userValidator = [
     .isString()
     .withMessage(": Should be a string.!"),
 
-  check("walletAmount")
-    .trim()
-    .exists({ checkNull: true, checkFalsy: true })
-    .withMessage(": Can not be empty.!"),
+  // check("walletAmount")
+  //   .trim()
+  //   .exists({ checkNull: true, checkFalsy: true })
+  //   .withMessage(": Can not be empty.!"),
 
-  check("totalMinuteServed")
-    .trim()
-    .exists({ checkNull: true, checkFalsy: true })
-    .withMessage(": Can not be empty.!"),
+  // check("totalMinuteServed")
+  //   .trim()
+  //   .exists({ checkNull: true, checkFalsy: true })
+  //   .withMessage(": Can not be empty.!"),
 
-  check("totalAdsViewed")
-    .trim()
-    .exists({ checkNull: true, checkFalsy: true })
-    .withMessage(": Can not be empty.!"),
+  // check("totalAdsViewed")
+  //   .trim()
+  //   .exists({ checkNull: true, checkFalsy: true })
+  //   .withMessage(": Can not be empty.!"),
 
-  check("withdrawalMethodId")
-    .trim()
-    .exists({ checkNull: true, checkFalsy: true })
-    .withMessage(": Can not be empty.!"),
+  // check("withdrawalMethodId")
+  //   .trim()
+  //   .exists({ checkNull: true, checkFalsy: true })
+  //   .withMessage(": Can not be empty.!"),
 
-  check("accountNo")
-    .trim()
-    .exists({ checkNull: true, checkFalsy: true })
-    .withMessage(": Can not be empty.!"),
+  // check("accountNo")
+  //   .trim()
+  //   .exists({ checkNull: true, checkFalsy: true })
+  //   .withMessage(": Can not be empty.!"),
 
-  check("accountNo")
-    .trim()
-    .exists({ checkNull: true, checkFalsy: true })
-    .withMessage(": Can not be empty.!"),
-
-  check("interests")
-    .exists({ checkNull: true, checkFalsy: true })
-    .withMessage(": Can not be empty.!")
-    .isArray()
-    .withMessage(": Should be an array.!"),
+  // check("interests")
+  //   .exists({ checkNull: true, checkFalsy: true })
+  //   .withMessage(": Can not be empty.!")
+  //   .isArray()
+  //   .withMessage(": Should be an array.!"),
 ];
 
 module.exports = { userValidator };
