@@ -30,21 +30,21 @@ const withdrawalRequestValidator = [
         .exists({ checkNull: true, checkFalsy: true })
         .withMessage(": Can not be empty.!"),
 
-    check("status")
-        .trim()
-        .exists({ checkNull: true, checkFalsy: true })
-        .withMessage(": Can not be empty.!")
-        .bail()
-        .isString()
-        .withMessage(": Should be a string.!"),
+    // check("status")
+    //     .trim()
+    //     .exists({ checkNull: true, checkFalsy: true })
+    //     .withMessage(": Can not be empty.!")
+    //     .bail()
+    //     .isString()
+    //     .withMessage(": Should be a string.!"),
 
-    check("note")
-        .trim()
-        .exists({ checkNull: true, checkFalsy: true })
-        .withMessage(": Can not be empty.!")
-        .bail()
-        .isString()
-        .withMessage(": Should be a string.!"),
+    // check("note")
+    //     .trim()
+    //     .exists({ checkNull: true, checkFalsy: true })
+    //     .withMessage(": Can not be empty.!")
+    //     .bail()
+    //     .isString()
+    //     .withMessage(": Should be a string.!"),
 ];
 
 module.exports = { withdrawalRequestValidator };

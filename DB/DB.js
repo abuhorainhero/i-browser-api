@@ -17,7 +17,7 @@ mongoose.connect(
     if (err) {
       console.error(`failed to connect using mongoose : ${err}`);
     } else {
-      console.log(`connected to DATA_BASE server`);
+      //console.log(`connected to DATA_BASE server`);
     }
   }
 );

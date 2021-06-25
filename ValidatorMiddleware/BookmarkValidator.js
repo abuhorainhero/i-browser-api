@@ -13,8 +13,6 @@ const bookmarkValidator = [
         .trim()
         .exists({ checkNull: true, checkFalsy: true })
         .withMessage(": Can not be empty.!")
-        .isLength({ min: 24 })
-        .withMessage(": minimum length 24 char.!")
         .bail()
         .isString()
         .withMessage(": Should be a string.!"),

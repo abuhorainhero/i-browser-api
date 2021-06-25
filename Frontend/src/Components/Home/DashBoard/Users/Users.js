@@ -10,6 +10,7 @@ import { Table } from '@material-ui/core';
 import { connect } from 'react-redux';
 
 import Modal from 'react-modal';
+import NotAccess from '../../NotAccess/NotAccess';
 
 const customStyles = {
     content: {
@@ -92,61 +93,61 @@ const Users = (props) => {
             <div className={props.sidebarActive ? "col-md-10" : "col-md-12"}>
                 <DashboardHeader name={"All Users"} />
 
-                {/* {accessbility.ads === true ? ( */}
-                <section className="container-fluid dashboard_content mt-4">
+                {accessbility?.role === "Admin" ? (
+                    <section className="container-fluid dashboard_content mt-4">
 
-                    <div className="my-3">
-                        <h2 className="text-center mb-4 mt-5">All Users</h2>
-                        {users?.length > 0 && (
-                            <div className="table_div">
-                                <Table className="" striped bordered hover size="sm">
-                                    <thead>
-                                        <tr>
-                                            <th> Count</th>
-                                            <th> Name</th>
-                                            <th> Phone</th>
-                                            <th> Country</th>
-                                            <th> City</th>
-                                            <th> Wallet Amount</th>
-                                            <th> Total Ads Viewed</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {users.map((info, index) => (
-                                            <tr key={info._id} onClick={() => handleUser(info._id)} className="userModel text-center">
-                                                <td>
-                                                    {index + 1}
-                                                </td>
-                                                <td>
-                                                    {info.name}
-                                                </td>
-                                                <td>
-                                                    {info.phone}
-                                                </td>
-                                                <td>
-                                                    {country?.find(cou => cou._id == info.countryId)?.name}
-                                                </td>
-                                                <td>
-                                                    {city?.find(cou => cou._id == info.cityId)?.name}
-                                                </td>
-                                                <td>
-                                                    {info.walletAmount}
-                                                </td>
-                                                <td>
-                                                    {info.totalAdsViewed}
-                                                </td>
+                        <div className="my-3">
+                            <h2 className="text-center mb-4 mt-5">All Users</h2>
+                            {users?.length > 0 && (
+                                <div className="table_div">
+                                    <Table className="" striped bordered hover size="sm">
+                                        <thead>
+                                            <tr>
+                                                <th> Count</th>
+                                                <th> Name</th>
+                                                <th> Phone</th>
+                                                <th> Country | id</th>
+                                                <th> City | id</th>
+                                                <th> Wallet Amount</th>
+                                                <th> Total Ads Viewed</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </Table>
-                            </div>
-                        )}
-                    </div>
-                </section>
+                                        </thead>
+                                        <tbody>
+                                            {users.map((info, index) => (
+                                                <tr key={info._id} onClick={() => handleUser(info._id)} className="userModel text-center">
+                                                    <td>
+                                                        {index + 1}
+                                                    </td>
+                                                    <td>
+                                                        {info.name || "---"}
+                                                    </td>
+                                                    <td>
+                                                        {info.phone || "---"}
+                                                    </td>
+                                                    <td>
+                                                        {country?.find(cou => cou._id == info.countryId)?.name || "---"}
+                                                    </td>
+                                                    <td>
+                                                        {city?.find(cou => cou._id == info.cityId)?.name || "---"}
+                                                    </td>
+                                                    <td>
+                                                        {info.walletAmount}
+                                                    </td>
+                                                    <td>
+                                                        {info.totalAdsViewed}
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </Table>
+                                </div>
+                            )}
+                        </div>
+                    </section>
 
-                {/* ): (
+                ) : (
                     <NotAccess />
-                )} */}
+                )}
 
 
                 {/* --------------------- modal / popup start -------------------- */}
@@ -161,12 +162,12 @@ const Users = (props) => {
                     <div className="row">
                         <div className="col-md-6">
                             <p> <b>ID:</b> {modalUser._id}</p>
-                            <p> <b>Name:</b> {modalUser.name}</p>
-                            <p> <b>Phone:</b> {modalUser.phone}</p>
-                            <p> <b>Email:</b> {modalUser.email}</p>
-                            <p> <b>Gender:</b> {modalUser.gender}</p>
-                            <p> <b>Country:</b> {country?.find(cou => cou._id == modalUser.countryId)?.name}</p>
-                            <p> <b>City:</b> {city?.find(cou => cou._id == modalUser.cityId)?.name}</p>
+                            <p> <b>Name:</b> {modalUser.name || "---"}</p>
+                            <p> <b>Phone:</b> {modalUser.phone || "---"}</p>
+                            <p> <b>Email:</b> {modalUser.email || "---"}</p>
+                            <p> <b>Gender:</b> {modalUser.gender || "---"}</p>
+                            <p> <b>Country:</b> {country?.find(cou => cou._id == modalUser.countryId)?.name || "---"}</p>
+                            <p> <b>City:</b> {city?.find(cou => cou._id == modalUser.cityId)?.name || "---"}</p>
                             <p> <b>createdAt:</b> {new Date(`${modalUser.createdAt}`).toLocaleString("en-US")}</p>
 
                         </div>
@@ -175,9 +176,9 @@ const Users = (props) => {
                             <p> <b>totalMinuteServed:</b> {modalUser.totalMinuteServed}</p>
                             <p> <b>totalAdsViewed:</b> {modalUser.totalAdsViewed}</p>
 
-                            <p> <b>withdrawalMethodId:</b> {modalUser.withdrawalMethodId}</p>
-                            <p> <b>accountNo:</b> {modalUser.accountNo}</p>
-                            <p> <b>interests:</b> {modalUser.interests}</p>
+                            <p> <b>withdrawalMethodId:</b> {modalUser.withdrawalMethodId || "---"}</p>
+                            <p> <b>accountNo:</b> {modalUser.accountNo || "---"}</p>
+                            <p> <b>interests:</b> {modalUser.interests || "---"}</p>
                             <p> <b>createdAt:</b> {new Date(`${modalUser.updatedAt}`).toLocaleString("en-US")}</p>
 
                         </div>

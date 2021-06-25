@@ -4,7 +4,7 @@ import LocalStorage from "./LocalStorage";
 
 const Home = () => {
   const [loggedInUser, setLoggedInUser] = LocalStorage("loggedInUser", {});
-  // console.log(loggedInUser)
+  // //console.log(loggedInUser)
   return (
     <div className="text-center mt-5">
       <h1>Welcome to iBrowser Admin Panel </h1>

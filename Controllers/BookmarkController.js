@@ -9,7 +9,7 @@ const {
   const bookmarkCreate = async (req, res, next) => {
     try {
       const info = req.body;
-      console.log(info);
+      //console.log(info);
       const bookmark = await bookmark_create(info);
       const bookmarkObj = JSON.parse(JSON.stringify(bookmark));
   
@@ -49,7 +49,7 @@ const {
   const bookmarkGetOne = async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(id);
+      //console.log(id);
       const bookmark = await bookmark_get_one(id);
       const bookmarkObj = JSON.parse(JSON.stringify(bookmark));
   
@@ -71,7 +71,7 @@ const {
     try {
       const info = req.body;
       const { id } = req.params;
-      console.log(id, info);
+      //console.log(id, info);
       const bookmark = await bookmark_update(id, info);
       const bookmarkObj = JSON.parse(JSON.stringify(bookmark));
   
@@ -94,7 +94,7 @@ const {
   const bookmarkDelete = async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(id);
+      //console.log(id);
       const bookmark = await bookmark_delete(id);
       const bookmarkObj = JSON.parse(JSON.stringify(bookmark));
   

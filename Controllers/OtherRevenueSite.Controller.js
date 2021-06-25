@@ -9,7 +9,7 @@ const {
   const otherRevenueSiteCreate = async (req, res, next) => {
     try {
       const info = req.body;
-      console.log(info);
+      //console.log(info);
       const otherRevenueSite = await otherRevenueSite_create(info);
       const otherRevenueSiteObj = JSON.parse(JSON.stringify(otherRevenueSite));
   
@@ -49,7 +49,7 @@ const {
   const otherRevenueSiteGetOne = async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(id);
+      //console.log(id);
       const otherRevenueSite = await otherRevenueSite_get_one(id);
       const otherRevenueSiteObj = JSON.parse(JSON.stringify(otherRevenueSite));
   
@@ -71,7 +71,7 @@ const {
     try {
       const info = req.body;
       const { id } = req.params;
-      console.log(id, info);
+      //console.log(id, info);
       const otherRevenueSite = await otherRevenueSite_update(id, info);
       const otherRevenueSiteObj = JSON.parse(JSON.stringify(otherRevenueSite));
   
@@ -94,7 +94,7 @@ const {
   const otherRevenueSiteDelete = async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(id);
+      //console.log(id);
       const otherRevenueSite = await otherRevenueSite_delete(id);
       const otherRevenueSiteObj = JSON.parse(JSON.stringify(otherRevenueSite));
   

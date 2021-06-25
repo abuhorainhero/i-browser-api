@@ -10,7 +10,15 @@ const {
 const adminCreate = async (req, res, next) => {
   try {
     const info = req.body;
-    console.log(info);
+
+    const adminCreate = await findAdminByEmail(info.email);
+    if (adminCreate) {
+      return res.status(401).json({
+        error: true,
+        admin: null,
+        message: `${info.email} This admin already exists`,
+      });
+    }
     const admin = await admin_create(info);
     const adminObj = JSON.parse(JSON.stringify(admin));
 
@@ -50,7 +58,7 @@ const adminGetAll = async (req, res, next) => {
 const adminGetOne = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
+    //console.log(id);
     const admin = await admin_get_one(id);
     const adminObj = JSON.parse(JSON.stringify(admin));
 
@@ -72,7 +80,7 @@ const adminUpdate = async (req, res, next) => {
   try {
     const info = req.body;
     const { id } = req.params;
-    console.log(id, info);
+    //console.log(id, info);
     const adminUp = await admin_update(id, info);
 
     if (!adminUp) {
@@ -104,17 +112,27 @@ const adminUpdate = async (req, res, next) => {
 const adminDelete = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
-    const admin = await admin_delete(id);
+    //console.log(id);
+    const adminDel = await admin_delete(id);
+
+    if (!adminDel) {
+      return res.status(401).json({
+        error: true,
+        admin: null,
+        message: "not delete",
+      });
+    }
+
+    const admin = await admin_get_all()
     const adminObj = JSON.parse(JSON.stringify(admin));
 
-    if (adminObj.ok) {
+   
       return res.status(200).json({
         error: false,
         admin: adminObj,
         message: "admin delete successfully",
       });
-    }
+    
   } catch (error) {
     return res.status(500).json({
       error: error,
@@ -128,7 +146,7 @@ const adminDelete = async (req, res, next) => {
 // -------------------- login admin --------------
 const loginController = async (req, res, next) => {
   try {
-    console.log(req.body);
+    //console.log(req.body);
     const admin = await findAdminByEmail(req.body.email);
 
     if (!admin) {

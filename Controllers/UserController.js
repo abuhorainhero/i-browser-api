@@ -10,7 +10,15 @@ const {
 const userCreate = async (req, res, next) => {
   try {
     const info = req.body;
-    console.log(info);
+    //console.log(info);
+    const userCreate = await findUserByEmail(info.email);
+    if (userCreate) {
+      return res.status(401).json({
+        error: true,
+        user: null,
+        message: `${info.email} This user already exists`,
+      });
+    }
     const user = await user_create({ ...info, walletAmount: 0, totalMinuteServed: 0, totalAdsViewed: 0 });
     const userObj = JSON.parse(JSON.stringify(user));
 
@@ -50,7 +58,7 @@ const userGetAll = async (req, res, next) => {
 const userGetOne = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
+    //console.log(id);
     const user = await user_get_one(id);
     const userObj = JSON.parse(JSON.stringify(user));
 
@@ -72,17 +80,24 @@ const userUpdate = async (req, res, next) => {
   try {
     const info = req.body;
     const { id } = req.params;
-    console.log(id, info);
-    const user = await user_update(id, info);
-    const userObj = JSON.parse(JSON.stringify(user));
-
-    if (userObj.ok) {
-      return res.status(200).json({
-        error: false,
-        user: userObj,
-        message: "user update successfully",
+    //console.log(id, info);
+    const userUp = await user_update(id, info);
+    if (!userUp) {
+      return res.status(401).json({
+        error: true,
+        user: null,
+        message: "not update",
       });
+
     }
+    const user = await user_get_all()
+    const userObj = JSON.parse(JSON.stringify(user));
+    return res.status(200).json({
+      error: false,
+      user: userObj,
+      message: "user update successfully",
+    });
+
   } catch (error) {
     return res.status(500).json({
       error: error,
@@ -95,7 +110,7 @@ const userUpdate = async (req, res, next) => {
 const userDelete = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
+    //console.log(id);
     const user = await user_delete(id);
     const userObj = JSON.parse(JSON.stringify(user));
 
@@ -119,7 +134,7 @@ const userDelete = async (req, res, next) => {
 // -------------------- login user --------------
 const loginController = async (req, res, next) => {
   try {
-    console.log(req.body);
+    //console.log(req.body);
     const user = await findUserByEmail(req.body.email);
 
     if (!user) {

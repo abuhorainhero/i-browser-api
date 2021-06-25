@@ -9,7 +9,7 @@ const {
   const interestCreate = async (req, res, next) => {
     try {
       const info = req.body;
-      console.log(info);
+      //console.log(info);
       const interest = await interest_create(info);
       const interestObj = JSON.parse(JSON.stringify(interest));
   
@@ -51,7 +51,7 @@ const {
   const interestGetOne = async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(id);
+      //console.log(id);
       const interest = await interest_get_one(id);
       const interestObj = JSON.parse(JSON.stringify(interest));
   
@@ -75,7 +75,7 @@ const {
     try {
       const info = req.body;
       const { id } = req.params;
-      console.log(id, info);
+      //console.log(id, info);
       const interest = await interest_update(id, info);
       const interestObj = JSON.parse(JSON.stringify(interest));
   
@@ -98,7 +98,7 @@ const {
   const interestDelete = async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(id);
+      //console.log(id);
       const interest = await interest_delete(id);
       const interestObj = JSON.parse(JSON.stringify(interest));
   

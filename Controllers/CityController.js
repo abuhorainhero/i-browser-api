@@ -9,7 +9,7 @@ const {
 const cityCreate = async (req, res, next) => {
   try {
     const info = req.body;
-    console.log(info);
+    //console.log(info);
     const city = await city_create(info);
     const cityObj = JSON.parse(JSON.stringify(city));
 
@@ -51,7 +51,7 @@ const cityGetAll = async (req, res, next) => {
 const cityGetOne = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
+    //console.log(id);
     const city = await city_get_one(id);
     const cityObj = JSON.parse(JSON.stringify(city));
 
@@ -75,7 +75,7 @@ const cityUpdate = async (req, res, next) => {
   try {
     const info = req.body;
     const { id } = req.params;
-    console.log(id, info);
+    //console.log(id, info);
     const city = await city_update(id, info);
     const cityObj = JSON.parse(JSON.stringify(city));
 
@@ -98,7 +98,7 @@ const cityUpdate = async (req, res, next) => {
 const cityDelete = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
+    //console.log(id);
     const city = await city_delete(id);
     const cityObj = JSON.parse(JSON.stringify(city));
 

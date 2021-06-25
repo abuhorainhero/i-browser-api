@@ -112,7 +112,7 @@ const AccountSetting = (props) => {
       ...data
     };
 
-    console.log(data);
+    //console.log(data);
     if (data?.phone?.length >= 10) {
       if (data?.password === data?.confirmPass) {
         if (data?.password?.length > 3) {
@@ -124,14 +124,14 @@ const AccountSetting = (props) => {
             )
             .then((res) => {
               const { admin, error, message } = res.data;
-              console.log(admin);
+              //console.log(admin);
               setAccessbility(admin);
               createNotification("success", "SUCCESSFULLY", `${message}`);
               setEditOn(false);
               setProcessing(false);
             })
             .catch((err) => {
-              console.log("got error");
+              //console.log("got error");
               setProcessing(false);
               createNotification(
                 "warning",
@@ -156,7 +156,7 @@ const AccountSetting = (props) => {
 
 
 
-  console.log(accessbility);
+  //console.log(accessbility);
   return (
     <>
       {editOn ? (

@@ -25,7 +25,7 @@ const LoginForm = () => {
       axios
         .post(`/api/admin/admin-login`, data)
         .then((res) => {
-          console.log("loginFrom 28 = ", res.data)
+          //console.log("loginFrom 28 = ", res.data)
           createNotification('success', 'LOG IN', 'Successfully !');
           setLoggedInUser({ _id: res.data.admin._id })
           setAccessbility(res.data.admin)
@@ -37,7 +37,7 @@ const LoginForm = () => {
           setLoader(false)
         })
         .catch((err) => {
-          console.log(err.response)
+          //console.log(err.response)
           setLoader(false)
           createNotification('warning', `${err.response?.data.message}`, '')
 
@@ -49,7 +49,7 @@ const LoginForm = () => {
       // ইনপুট এর পাশে লোডিং আর জন্য এটা; যখন ডাটা পোস্ট হবে তখন setLoader(false) করেতে হবে
     }
   };
-  console.log(loggedInUser);
+  //console.log(loggedInUser);
 
   return (
     <div className="login_back">

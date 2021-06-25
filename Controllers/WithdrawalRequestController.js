@@ -9,7 +9,7 @@ const {
   const withdrawalRequestCreate = async (req, res, next) => {
     try {
       const info = req.body;
-      console.log(info);
+      //console.log(info);
       const withdrawalRequest = await withdrawalRequest_create(info);
       const withdrawalRequestObj = JSON.parse(JSON.stringify(withdrawalRequest));
   
@@ -49,7 +49,7 @@ const {
   const withdrawalRequestGetOne = async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(id);
+      //console.log(id);
       const withdrawalRequest = await withdrawalRequest_get_one(id);
       const withdrawalRequestObj = JSON.parse(JSON.stringify(withdrawalRequest));
   
@@ -71,7 +71,7 @@ const {
     try {
       const info = req.body;
       const { id } = req.params;
-      console.log(id, info);
+      //console.log(id, info);
       const withdrawalRequest = await withdrawalRequest_update(id, info);
       const withdrawalRequestObj = JSON.parse(JSON.stringify(withdrawalRequest));
   
@@ -94,7 +94,7 @@ const {
   const withdrawalRequestDelete = async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(id);
+      //console.log(id);
       const withdrawalRequest = await withdrawalRequest_delete(id);
       const withdrawalRequestObj = JSON.parse(JSON.stringify(withdrawalRequest));
   

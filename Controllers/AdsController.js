@@ -9,7 +9,7 @@ const {
   const adsCreate = async (req, res, next) => {
     try {
       const info = req.body;
-      console.log(info);
+      //console.log(info);
       const ads = await ads_create(info);
       const adsObj = JSON.parse(JSON.stringify(ads));
   
@@ -49,7 +49,7 @@ const {
   const adsGetOne = async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(id);
+      //console.log(id);
       const ads = await ads_get_one(id);
       const adsObj = JSON.parse(JSON.stringify(ads));
   
@@ -71,7 +71,7 @@ const {
     try {
       const info = req.body;
       const { id } = req.params;
-      console.log(id, info);
+      //console.log(id, info);
       const ads = await ads_update(id, info);
       const adsObj = JSON.parse(JSON.stringify(ads));
   
@@ -94,7 +94,7 @@ const {
   const adsDelete = async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(id);
+      //console.log(id);
       const ads = await ads_delete(id);
       const adsObj = JSON.parse(JSON.stringify(ads));
   

@@ -29,7 +29,7 @@ function App() {
 
 
   useEffect(() => {
-    // console.log('hit api')
+    // //console.log('hit api')
     if (loggedInUser?._id) {
       axios
         .get(`/api/admin/get-one/${loggedInUser._id}`)

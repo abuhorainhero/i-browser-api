@@ -9,7 +9,7 @@ const {
 const countryCreate = async (req, res, next) => {
   try {
     const info = req.body;
-    console.log(info);
+    //console.log(info);
     const country = await country_create(info);
     const countryObj = JSON.parse(JSON.stringify(country));
 
@@ -49,7 +49,7 @@ const countryGetAll = async (req, res, next) => {
 const countryGetOne = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
+    //console.log(id);
     const country = await country_get_one(id);
     const countryObj = JSON.parse(JSON.stringify(country));
 
@@ -71,7 +71,7 @@ const countryUpdate = async (req, res, next) => {
   try {
     const info = req.body;
     const { id } = req.params;
-    console.log(id, info);
+    //console.log(id, info);
     const country = await country_update(id, info);
     const countryObj = JSON.parse(JSON.stringify(country));
 
@@ -94,7 +94,7 @@ const countryUpdate = async (req, res, next) => {
 const countryDelete = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
+    //console.log(id);
     const country = await country_delete(id);
     const countryObj = JSON.parse(JSON.stringify(country));
 

@@ -1,7 +1,6 @@
 import React from "react";
 import "./DashboardHeader.css";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import NotificationsActiveOutlinedIcon from "@material-ui/icons/NotificationsActiveOutlined";
 import { Link } from "react-router-dom";
 import ViewWeekIcon from "@material-ui/icons/ViewWeek";
 import { connect } from "react-redux";

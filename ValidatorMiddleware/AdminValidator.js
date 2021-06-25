@@ -5,8 +5,6 @@ const adminValidator = [
     .trim()
     .exists({ checkNull: true, checkFalsy: true })
     .withMessage(": Can not be empty.!")
-    .isLength({ min: 5 })
-    .withMessage(": minimum length 5 characters.!")
     .bail()
     .isString()
     .withMessage(": Should be a string.!"),
@@ -15,8 +13,8 @@ const adminValidator = [
     .trim()
     .exists({ checkNull: true, checkFalsy: true })
     .withMessage(": Can not be empty.!")
-    .isLength({ min: 10, max: 16 })
-    .withMessage(": Length minimum 10 && maximum 16 characters.!")
+    .isLength({ min: 10 })
+    .withMessage(": Length minimum 10 Characters.!")
     .bail()
     .isString()
     .withMessage(": Should be a string.!"),
@@ -25,8 +23,6 @@ const adminValidator = [
     .trim()
     .exists({ checkNull: true, checkFalsy: true })
     .withMessage(": Can not be empty.!")
-    .isLength({ min: 12, max: 50 })
-    .withMessage(": Length minimum 12 && maximum 50 characters.!")
     .bail()
     .isString()
     .withMessage(": Should be a string.!")

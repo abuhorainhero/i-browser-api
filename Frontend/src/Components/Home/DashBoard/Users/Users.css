@@ -17,6 +17,7 @@
 td {
   border: none;
   border-bottom: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
 }
 .userModel:hover {
   background-color: lightyellow;

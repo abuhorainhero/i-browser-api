@@ -80,12 +80,11 @@ app.use("/api/user", userRouter);
 app.use("/api/city", cityRouter);
 app.use("/api/country", countryRouter);
 app.use("/api/news", newsRouter);
-
+app.use("/api/ads", adsRouter);
 app.use("/api/interest", interestRouter);
 app.use("/api/bookmark", bookmarkRouter);
 app.use("/api/withdrawal-method", withdrawalMethodRouter);
 app.use("/api/withdrawal-request", withdrawalRequestRouter);
-app.use("/api/ads", adsRouter);
 app.use("/api/viewed-ads", viewedAdsRouter);
 app.use("/api/special-revenue-site", specialRevenueSiteRouter);
 app.use("/api/other-revenue-site", otherRevenueSiteRouter);

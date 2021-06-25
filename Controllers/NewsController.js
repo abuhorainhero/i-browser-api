@@ -12,7 +12,7 @@ const {
       const file = req.file;
       const filePath = `${req.get("host")}/${file.path}`;
       const finalInfo = { ...info, image: filePath };
-      console.log(finalInfo);
+      //console.log(finalInfo);
       const news = await news_create(finalInfo);
       const newsObj = JSON.parse(JSON.stringify(news));
   
@@ -52,7 +52,7 @@ const {
   const newsGetOne = async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(id);
+      //console.log(id);
       const news = await news_get_one(id);
       const newsObj = JSON.parse(JSON.stringify(news));
   
@@ -77,7 +77,7 @@ const {
       const file = req.file;
       const filePath = `${req.get("host")}/${file.path}`;
       const finalInfo = { ...info, image: filePath };
-      console.log(finalInfo);
+      //console.log(finalInfo);
 
       const news = await news_update(id, finalInfo);
       const newsObj = JSON.parse(JSON.stringify(news));
@@ -101,7 +101,7 @@ const {
   const newsDelete = async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(id);
+      //console.log(id);
       const news = await news_delete(id);
       const newsObj = JSON.parse(JSON.stringify(news));
   

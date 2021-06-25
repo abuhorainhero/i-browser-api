@@ -13,6 +13,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import { NotificationContainer } from 'react-notifications';
 import { connect } from 'react-redux';
+import NotAccess from '../../NotAccess/NotAccess';
 
 const City = (props) => {
 
@@ -25,9 +26,11 @@ const City = (props) => {
     const [cityUpInfo, setCityUpInfo] = useState({});
     const [cityDeleteThen, setCityDeleteThen] = useState([]);
     const [accessbility, setAccessbility] = useContext(UserContext);
+    const [country, setCountry] = useState([]);
+    const [users, setUsers] = useState([]);
 
     const onSubmit = (data) => {
-        console.log(data);
+        //console.log(data);
 
         if (cityUpdate) {
             axios
@@ -36,14 +39,14 @@ const City = (props) => {
                     data
                 )
                 .then((res) => {
-                    console.log("city 39 =", res);
+                    //console.log("city 39 =", res);
                     const { city, error, message } = res.data;
 
                     createNotification("success", `SUCCESSFULLY`, `${message}`);
                     setCityUpInfo(city);
                 })
                 .catch((err) => {
-                    console.log(err.response.data.message);
+                    //console.log(err.response.data.message);
                     createNotification(
                         "warning",
                         "FAILED",
@@ -54,14 +57,14 @@ const City = (props) => {
             axios
                 .post("/api/city/create", data)
                 .then((res) => {
-                    console.log("city 57 =", res);
+                    //console.log("city 57 =", res);
                     const { city, error, message } = res.data;
 
                     createNotification("success", "SUCCESSFULLY", `${message}`);
                     setNewCity(city);
                 })
                 .catch((err) => {
-                    console.log(err.response.data.message);
+                    //console.log(err.response.data.message);
                     createNotification(
                         "warning",
                         "FAILED",
@@ -72,7 +75,7 @@ const City = (props) => {
     };
 
     const handleClear = () => {
-        console.log("Clear Click");
+        //console.log("Clear Click");
         setCityUpdate("");
     };
 
@@ -80,48 +83,68 @@ const City = (props) => {
         axios
             .get("/api/city/get-all")
             .then((res) => {
-                console.log("city 83 =", res);
+                //console.log("city 83 =", res);
                 const { city, error, message } = res.data;
                 setCity(city);
             })
             .catch((err) => {
-                console.log(err.response?.data.message);
-                alert(err.response?.data.message);
+                //console.log(err.response?.data.message);
             });
+
     }, [cityDeleteThen, newCity, cityUpInfo]);
+
+    useEffect(() => {
+        axios
+            .get("/api/country/get-all")
+            .then((res) => {
+                //console.log("country 83 =", res);
+                const { country, error, message } = res.data;
+                setCountry(country)
+            })
+            .catch((err) => {
+                //console.log(err.response?.data.message);
+            });
+
+        axios
+            .get("/api/user/get-all").then(res => {
+                setUsers(res.data.user)
+            }).catch((err) => {
+                //console.log(err);
+            });
+    }, [])
 
     // =============== handleUpdate =============================
     const handleUpdate = (id) => {
-        console.log("update ID ; ", id);
+        //console.log("update ID ; ", id);
 
         axios
             .get(`/api/city/get-one/${id}`)
             .then((res) => {
-                console.log(res);
+                //console.log(res);
                 const { city, error, message } = res.data;
                 setCityUpdate(city);
             })
             .catch((err) => {
-                console.log(err.response.data.message);
-                alert(err.response.data.message);
+                //console.log(err.response.data.message);
+                //alert(err.response.data.message);
             });
     };
 
     const handleDelete = (id) => {
-        console.log("update ID ; ", id);
+        //console.log("update ID ; ", id);
 
         axios
             .delete(
                 `/api/city/delete-one/${id}`
             )
             .then((res) => {
-                console.log(res);
+                //console.log(res);
                 const { city, error, message } = res.data;
                 createNotification("success", "DELETE", `${message}`);
                 setCityDeleteThen(city);
             })
             .catch((err) => {
-                console.log(err.response.data.message);
+                //console.log(err.response.data.message);
                 createNotification("warning", "FAILED", `${err.response.data.message}`);
             });
 
@@ -138,125 +161,125 @@ const City = (props) => {
             <div className={props.sidebarActive ? "col-md-10" : "col-md-12"}>
                 <DashboardHeader name={"CITY Add"} />
 
-                {/* {accessbility.city === true ? ( */}
+                {accessbility.city === true ? (
 
-                <section className="container-fluid dashboard_content mt-4">
-                    <div className="">
-                        <form onSubmit={handleSubmit(onSubmit)} className="row">
-                            <div className="col-md-6">
-                                <div className="input-group  my-2">
-                                    <label className="input-group-text" htmlFor="name">
-                                        City Name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        id="name"
-                                        placeholder="Enter city name"
-                                        defaultValue={cityUpdate?.name}
-                                        className="form-control"
-                                        ref={register({ required: true })}
-                                    />
-                                    {errors.name && (
-                                        <span className="text-danger">name is required</span>
-                                    )}
-                                </div>
-                            </div>
-
-                            <div className="col-md-6">
-                                <div className="input-group  my-2">
-                                    <label className="input-group-text" htmlFor="countryId">
-                                        Country Id
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="countryId"
-                                        id="countryId"
-                                        placeholder="Enter countryId"
-                                        defaultValue={cityUpdate?.countryId}
-                                        className="form-control"
-                                        ref={register({ required: true })}
-                                    />
-                                    {errors.countryId && (
-                                        <span className="text-danger">countryId is required</span>
-                                    )}
+                    <section className="container-fluid dashboard_content mt-4">
+                        <div className="">
+                            <form onSubmit={handleSubmit(onSubmit)} className="row">
+                                <div className="col-md-6">
+                                    <div className="input-group  my-2">
+                                        <label className="input-group-text" htmlFor="name">
+                                            City Name
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            id="name"
+                                            placeholder="Enter city name"
+                                            defaultValue={cityUpdate?.name}
+                                            className="form-control"
+                                            ref={register({ required: true })}
+                                        />
+                                        {errors.name && (
+                                            <span className="text-danger">name is required</span>
+                                        )}
+                                    </div>
                                 </div>
 
-                            </div>
+                                <div className="col-md-6">
+                                    <div className="input-group  my-2">
+                                        <label className="input-group-text" htmlFor="countryId">
+                                            Country Id
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="countryId"
+                                            id="countryId"
+                                            placeholder="Enter countryId"
+                                            defaultValue={cityUpdate?.countryId}
+                                            className="form-control"
+                                            ref={register({ required: true })}
+                                        />
+                                        {errors.countryId && (
+                                            <span className="text-danger">countryId is required</span>
+                                        )}
+                                    </div>
 
-                            <div className="col-md-6 mt-3">
-                                <button type="submit" className="btn btn-success mr-2">
-                                    {cityUpdate ? "CITY UPDATE" : "CITY ADD"}
-                                </button>{" "}
-                                <button
-                                    type="reset"
-                                    className="btn btn-warning"
-                                    onClick={() => handleClear()}
-                                >
-                                    RESET
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                                </div>
 
-                    <div className="my-3">
-                        <h2 className="text-center mb-4 mt-5">Present City's</h2>
-                        {city?.length > 0 && (
-                            <div className="table_div">
-                                <Table className="table-responsive" striped bordered hover size="sm">
-                                    <thead>
-                                        <tr>
-                                            <th> ID</th>
-                                            <th> name</th>
-                                            <th> Total users</th>
-                                            <th> Country</th>
-                                            <th className="text-center">Modify</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {city.map((info, index) => (
-                                            <tr key={info._id} className="text-center">
-                                                <td>
-                                                    {info._id}
-                                                </td>
-                                                <td>
-                                                    {info.name}
-                                                </td>
-                                                <td>
-                                                    {"coming"}
-                                                </td>
-                                                <td>
-                                                    {info.countryId}
-                                                </td>
-                                                <td className="text-center">
-                                                    <span
-                                                        className="btn btn-info"
-                                                        style={{ cursor: "pointer" }}
-                                                        onClick={() => handleUpdate(info._id)}
-                                                    >
-                                                        <EditIcon />
-                                                    </span>{" "}
-                                                    ||{" "}
-                                                    <span
-                                                        className="btn btn-danger"
-                                                        style={{ cursor: "pointer" }}
-                                                        onClick={() => handleDelete(info._id)}
-                                                    >
-                                                        <DeleteForeverIcon />
-                                                    </span>
-                                                </td>
+                                <div className="col-md-6 mt-3">
+                                    <button type="submit" className="btn btn-success mr-2">
+                                        {cityUpdate ? "CITY UPDATE" : "CITY ADD"}
+                                    </button>{" "}
+                                    <button
+                                        type="reset"
+                                        className="btn btn-warning"
+                                        onClick={() => handleClear()}
+                                    >
+                                        RESET
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div className="my-3">
+                            <h2 className="text-center mb-4 mt-5">Present City's</h2>
+                            {city?.length > 0 && (
+                                <div className="table_div">
+                                    <Table className="table-responsive" striped bordered hover size="sm">
+                                        <thead>
+                                            <tr>
+                                                <th> ID</th>
+                                                <th> name</th>
+                                                <th> Total users</th>
+                                                <th> Country</th>
+                                                <th className="text-center">Modify</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </Table>
-                            </div>
-                        )}
-                    </div>
-                </section>
+                                        </thead>
+                                        <tbody>
+                                            {city.map((info, index) => (
+                                                <tr key={info._id} className="text-center">
+                                                    <td>
+                                                        {info._id}
+                                                    </td>
+                                                    <td>
+                                                        {info.name}
+                                                    </td>
+                                                    <td>
+                                                        {users.filter(user => user.cityId === info._id)?.length}
+                                                    </td>
+                                                    <td>
+                                                        {country.find(coun => coun._id == info.countryId)?.name || "---"}
+                                                    </td>
+                                                    <td className="text-center">
+                                                        <span
+                                                            className="btn btn-info"
+                                                            style={{ cursor: "pointer" }}
+                                                            onClick={() => handleUpdate(info._id)}
+                                                        >
+                                                            <EditIcon />
+                                                        </span>{" "}
+                                                        ||{" "}
+                                                        <span
+                                                            className="btn btn-danger"
+                                                            style={{ cursor: "pointer" }}
+                                                            onClick={() => handleDelete(info._id)}
+                                                        >
+                                                            <DeleteForeverIcon />
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </Table>
+                                </div>
+                            )}
+                        </div>
+                    </section>
 
-                {/* ): (
+                ) : (
                     <NotAccess />
-                )} */}
+                )}
 
             </div>
             <NotificationContainer />
