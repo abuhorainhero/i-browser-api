@@ -29,7 +29,7 @@ const userValidator = [
     .isString()
     .withMessage(": Should be a string.!"),
 
-    check("password")
+  check("password")
     .trim()
     .exists({ checkNull: true, checkFalsy: true })
     .withMessage(": Can not be empty.!"),

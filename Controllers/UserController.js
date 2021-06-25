@@ -88,9 +88,9 @@ const userUpdate = async (req, res, next) => {
         user: null,
         message: "not update",
       });
-
     }
-    const user = await user_get_all()
+
+    const user = await user_get_one(id)
     const userObj = JSON.parse(JSON.stringify(user));
     return res.status(200).json({
       error: false,
