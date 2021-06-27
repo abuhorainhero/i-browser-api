@@ -11,10 +11,10 @@ const {
   otherRevenueSiteDelete,
 } = require("../Controllers/OtherRevenueSite.Controller");
 
-router.post("/create", otherRevenueSiteValidator, checkValidator, otherRevenueSiteCreate);
+// router.post("/create", otherRevenueSiteValidator, checkValidator, otherRevenueSiteCreate);
 router.get("/get-all", otherRevenueSiteGetAll);
 router.get("/get-one/:id", otherRevenueSiteGetOne);
 router.patch("/update-one/:id", otherRevenueSiteValidator, checkValidator, otherRevenueSiteUpdate);
-router.delete("/delete-one/:id", otherRevenueSiteDelete);
+// router.delete("/delete-one/:id", otherRevenueSiteDelete);
 
 module.exports = router;

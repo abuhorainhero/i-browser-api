@@ -4,10 +4,6 @@ mongoose.Promise = global.Promise;
 
 const otherRevenueSiteSchema = new Schema(
     {
-        url: {
-            type: String,
-            trim: true,
-        },
         minVisitingTime: {    // minutes
             type: Number,
             trim: true,

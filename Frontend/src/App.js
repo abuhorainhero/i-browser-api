@@ -19,6 +19,7 @@ import Users from "./Components/Home/DashBoard/Users/Users";
 import Admin from "./Components/Home/DashBoard/Admin/Admin";
 import City from "./Components/Home/DashBoard/City/City";
 import Country from "./Components/Home/DashBoard/Country/Country";
+import SpecialSite from "./Components/Home/DashBoard/SpecialSite/SpecialSite";
 // ------------------------------------------------------- new ---------------
 
 export const UserContext = createContext();
@@ -61,6 +62,8 @@ function App() {
           <Route path="/admin"><Admin /></Route>
           <Route path="/city"><City /></Route>
           <Route path="/country"><Country /></Route>
+          
+          <Route path="/special-site"><SpecialSite /></Route>
 
 
           {/* ---------------- new end --------------------- */}

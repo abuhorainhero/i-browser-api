@@ -4,6 +4,14 @@ mongoose.Promise = global.Promise;
 
 const specialRevenueSiteSchema = new Schema(
     {
+        title: {
+            type: String,
+            trim: true,
+        },
+        icon: {
+            type: String,
+            trim: true,
+        },
         url: {
             type: String,
             trim: true,
@@ -12,7 +20,7 @@ const specialRevenueSiteSchema = new Schema(
             type: Number,
             trim: true,
         },
-        revenue : {
+        revenue: {
             type: Number,
             trim: true,
         }

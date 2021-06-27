@@ -10,7 +10,7 @@ const {
   newsUpdate,
   newsDelete,
 } = require("../Controllers/NewsController");
-const { upload } = require("../FileController/FileController")
+const { upload } = require("../FileController/NewsFileController")
 
 router.post("/create", upload.single("image"), newsValidator, checkValidator, newsCreate);
 router.get("/get-all", newsGetAll);

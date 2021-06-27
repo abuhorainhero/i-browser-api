@@ -72,16 +72,24 @@ const {
       const info = req.body;
       const { id } = req.params;
       //console.log(id, info);
-      const otherRevenueSite = await otherRevenueSite_update(id, info);
+      const otherRevenueSiteUp = await otherRevenueSite_update(id, info);
+      if (!otherRevenueSiteUp) {
+        return res.status(401).json({
+          error: true,
+          otherRevenueSite: null,
+          message: "otherRevenueSite update successfully",
+        })
+      }
+
+      const otherRevenueSite = await otherRevenueSite_get_one(id);
       const otherRevenueSiteObj = JSON.parse(JSON.stringify(otherRevenueSite));
   
-      if (otherRevenueSiteObj.ok) {
         return res.status(200).json({
           error: false,
           otherRevenueSite: otherRevenueSiteObj,
           message: "otherRevenueSite update successfully",
         });
-      }
+      
     } catch (error) {
       return res.status(500).json({
         error: error,

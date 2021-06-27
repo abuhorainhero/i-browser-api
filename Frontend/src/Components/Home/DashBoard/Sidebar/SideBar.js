@@ -6,19 +6,7 @@ import AddToQueueIcon from '@material-ui/icons/AddToQueue';
 
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
-import ShopTwoIcon from "@material-ui/icons/ShopTwo";
-import ViewWeekIcon from "@material-ui/icons/ViewWeek";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import PaymentIcon from "@material-ui/icons/Payment";
-import HistoryIcon from "@material-ui/icons/History";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
-import EuroSymbolIcon from "@material-ui/icons/EuroSymbol";
-import StorefrontIcon from "@material-ui/icons/Storefront";
-import MenuBookIcon from "@material-ui/icons/MenuBook";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
-import LocalStorage from "../../LocalStorage";
-import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 import { UserContext } from "../../../../App";
 import loading from "../../../../Images/loading.gif";
 import { connect } from "react-redux";
@@ -70,7 +58,7 @@ const SideBar = (props) => {
 
               <li
                 onClick={(e) => dropDown("Users")}
-                className={`side_bar_li drop_down_li ${location.pathname === "/users" && "active"
+                className={`side_bar_li drop_down_li ${location.pathname === "/users" || "/admin" && "active"
                   }`}
               >
                 Users <ArrowDropDownIcon />
@@ -92,6 +80,7 @@ const SideBar = (props) => {
 
                 <Link id="link_a" to="/admin">
                   <li
+                    onClick={e => dropDown("Admin")}
                     className={`side_bar_li ${location.pathname === "/admin" && "active"
                       }`}
                   >
@@ -130,14 +119,6 @@ const SideBar = (props) => {
               </Link>
             )}
 
-
-
-            {/* {accessbility.products ||
-              accessbility.sells ||
-              accessbility.pendingOrder ||
-              accessbility.paymentManage ? ( */}
-
-
             {accessbility.city && (
               <Link id="link_a" to="/city">
                 <li
@@ -162,6 +143,41 @@ const SideBar = (props) => {
                 </li>
               </Link>
             )}
+
+
+            <li
+              onClick={(e) => dropDown("BrowsingRevenue")}
+              className={`side_bar_li drop_down_li ${location.pathname === "/all-site" || "/other-site" && "active"
+                }`}
+            >
+              Browsing Revenue <ArrowDropDownIcon />
+            </li>
+            <div
+              className={
+                down === "BrowsingRevenue" ? "drop_down active" : "drop_down"
+              }
+            >
+              <Link id="link_a" to="/special-site">
+                <li
+                  className={`side_bar_li ${location.pathname === "/special-site" && "active"
+                    }`}
+                >
+                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  Special Site
+                </li>
+              </Link>
+
+              <Link id="link_a" to="/other-site">
+                <li
+                  className={`side_bar_li ${location.pathname === "/other-site" && "active"
+                    }`}
+                >
+                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  Other Site
+                </li>
+              </Link>
+
+            </div>
 
           </ul>
         </div>
