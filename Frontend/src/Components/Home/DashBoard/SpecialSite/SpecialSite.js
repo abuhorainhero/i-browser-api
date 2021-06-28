@@ -16,8 +16,6 @@ import { connect } from 'react-redux';
 import NotAccess from '../../NotAccess/NotAccess';
 
 const SpecialSite = (props) => {
-
-
     const { register, handleSubmit, errors } = useForm();
 
     const [newspecialSite, setNewspecialSite] = useState({});
@@ -26,11 +24,8 @@ const SpecialSite = (props) => {
     const [specialSiteUpInfo, setspecialSiteUpInfo] = useState({});
     const [specialSiteDeleteThen, setspecialSiteDeleteThen] = useState([]);
     const [accessbility, setAccessbility] = useContext(UserContext);
-    const [country, setCountry] = useState([]);
-    const [users, setUsers] = useState([]);
 
     const onSubmit = (data) => {
-        // data = { ...data, icon: data.icon[0] }
         console.log(data);
 
         if (specialSiteUpdate) {
@@ -141,7 +136,7 @@ const SpecialSite = (props) => {
             <div className={props.sidebarActive ? "col-md-10" : "col-md-12"}>
                 <DashboardHeader name={"specialSite Add"} />
 
-                {accessbility?.role === "Admin" ? (
+                {/* {accessbility?.role === "Admin" ? ( */}
 
                     <section className="container-fluid dashboard_content mt-4">
                         <div className="">
@@ -320,9 +315,9 @@ const SpecialSite = (props) => {
                         </div>
                     </section>
 
-                ) : (
-                    <NotAccess />
-                )}
+                // ) : (
+                //     <NotAccess />
+                // )}
 
             </div>
             <NotificationContainer />

@@ -52,6 +52,24 @@ if (process.env.NODE_ENV == 'production') {
     app.get("/profile", (req, res) => {
         res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
     });
+    app.get("/special-site", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    });
+    app.get("/other-site", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    });
+    app.get("/news", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    });
+    app.get("/all-entry", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    });
+    app.get("/success-entry", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    });
+    app.get("/reject-entry", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    });
 }
 
 app.use(express.static(path.join(__dirname, "public")));

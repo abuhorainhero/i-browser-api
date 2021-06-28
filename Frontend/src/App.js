@@ -20,6 +20,11 @@ import Admin from "./Components/Home/DashBoard/Admin/Admin";
 import City from "./Components/Home/DashBoard/City/City";
 import Country from "./Components/Home/DashBoard/Country/Country";
 import SpecialSite from "./Components/Home/DashBoard/SpecialSite/SpecialSite";
+import OtherSite from "./Components/Home/DashBoard/OtherSIte/OtherSite";
+import News from "./Components/Home/DashBoard/News/News";
+import AllEntry from "./Components/Home/DashBoard/Withdraw/AllEntry";
+import SuccessEntry from "./Components/Home/DashBoard/Withdraw/SuccessEntry";
+import RejectEntry from "./Components/Home/DashBoard/Withdraw/RejectEntry";
 // ------------------------------------------------------- new ---------------
 
 export const UserContext = createContext();
@@ -56,14 +61,18 @@ function App() {
 
           {/* -------------- new start --------------------- */}
 
-          <Route path="/ads"><Ads /></Route>
-          <Route path="/interest"><Interest /></Route>
-          <Route path="/users"><Users /></Route>
-          <Route path="/admin"><Admin /></Route>
-          <Route path="/city"><City /></Route>
-          <Route path="/country"><Country /></Route>
-          
-          <Route path="/special-site"><SpecialSite /></Route>
+          <PrivateRoute path="/ads"><Ads /></PrivateRoute>
+          <PrivateRoute path="/interest"><Interest /></PrivateRoute>
+          <PrivateRoute path="/users"><Users /></PrivateRoute>
+          <PrivateRoute path="/admin"><Admin /></PrivateRoute>
+          <PrivateRoute path="/city"><City /></PrivateRoute>
+          <PrivateRoute path="/country"><Country /></PrivateRoute>
+          <PrivateRoute path="/special-site"><SpecialSite /></PrivateRoute>
+          <PrivateRoute path="/other-site"><OtherSite /></PrivateRoute>
+          <PrivateRoute path="/news"><News /></PrivateRoute>
+          <PrivateRoute path="/all-entry"><AllEntry /></PrivateRoute>
+          <PrivateRoute path="/success-entry"><SuccessEntry /></PrivateRoute>
+          <PrivateRoute path="/reject-entry"><RejectEntry /></PrivateRoute>
 
 
           {/* ---------------- new end --------------------- */}

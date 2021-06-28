@@ -179,6 +179,64 @@ const SideBar = (props) => {
 
             </div>
 
+
+            {accessbility?.news && (
+              <Link id="link_a" to="/news">
+                <li
+                  className={`side_bar_li ${location.pathname === "/news" && "active"
+                    }`}
+                >
+                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  News
+                </li>
+              </Link>
+            )}
+
+
+            <li
+              onClick={(e) => dropDown("withdraw")}
+              className={`side_bar_li drop_down_li ${location.pathname === "/all-entry" || "/success-entry" || "/reject-entry" && "active"
+                }`}
+            >
+              Withdraw <ArrowDropDownIcon />
+            </li>
+            <div
+              className={
+                down === "withdraw" ? "drop_down active" : "drop_down"
+              }
+            >
+              <Link id="link_a" to="/all-entry">
+                <li
+                  className={`side_bar_li ${location.pathname === "/all-entry" && "active"
+                    }`}
+                >
+                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  ALL ENTRY
+                </li>
+              </Link>
+
+              <Link id="link_a" to="/success-entry">
+                <li
+                  className={`side_bar_li ${location.pathname === "/success-entry" && "active"
+                    }`}
+                >
+                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  Success Entry
+                </li>
+              </Link>
+
+              <Link id="link_a" to="/reject-entry">
+                <li
+                  className={`side_bar_li ${location.pathname === "/reject-entry" && "active"
+                    }`}
+                >
+                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  Reject Entry
+                </li>
+              </Link>
+            </div>
+
+
           </ul>
         </div>
       )}
