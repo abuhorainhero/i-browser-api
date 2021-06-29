@@ -14,7 +14,7 @@ const {
 router.post("/create", withdrawalRequestValidator, checkValidator, withdrawalRequestCreate);
 router.get("/get-all", withdrawalRequestGetAll);
 router.get("/get-one/:id", withdrawalRequestGetOne);
-router.patch("/update-one/:id", withdrawalRequestValidator, checkValidator, withdrawalRequestUpdate);
-router.delete("/delete-one/:id", withdrawalRequestDelete);
+router.patch("/update-one/:id", withdrawalRequestUpdate);
+// router.delete("/delete-one/:id", withdrawalRequestDelete);
 
 module.exports = router;

@@ -168,7 +168,7 @@ const Users = (props) => {
                             <p> <b>Gender:</b> {modalUser.gender || "---"}</p>
                             <p> <b>Country:</b> {country?.find(cou => cou._id == modalUser.countryId)?.name || "---"}</p>
                             <p> <b>City:</b> {city?.find(cou => cou._id == modalUser.cityId)?.name || "---"}</p>
-                            <p> <b>createdAt:</b> {new Date(`${modalUser.createdAt}`).toLocaleString("en-US")}</p>
+                            <p> <b>createdAt:</b> {new Date(`${modalUser.createdAt}`).toLocaleString("bn")}</p>
 
                         </div>
                         <div className="col-md-6">
@@ -179,7 +179,7 @@ const Users = (props) => {
                             <p> <b>withdrawalMethodId:</b> {modalUser.withdrawalMethodId || "---"}</p>
                             <p> <b>accountNo:</b> {modalUser.accountNo || "---"}</p>
                             <p> <b>interests:</b> {modalUser.interests || "---"}</p>
-                            <p> <b>createdAt:</b> {new Date(`${modalUser.updatedAt}`).toLocaleString("en-US")}</p>
+                            <p> <b>updateAt:</b> {new Date(`${modalUser.updatedAt}`).toLocaleString("bn")}</p>
 
                         </div>
                     </div>

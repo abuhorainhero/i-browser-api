@@ -25,6 +25,7 @@ import News from "./Components/Home/DashBoard/News/News";
 import AllEntry from "./Components/Home/DashBoard/Withdraw/AllEntry";
 import SuccessEntry from "./Components/Home/DashBoard/Withdraw/SuccessEntry";
 import RejectEntry from "./Components/Home/DashBoard/Withdraw/RejectEntry";
+import Method from "./Components/Home/DashBoard/Withdraw/Method";
 // ------------------------------------------------------- new ---------------
 
 export const UserContext = createContext();
@@ -70,10 +71,10 @@ function App() {
           <PrivateRoute path="/special-site"><SpecialSite /></PrivateRoute>
           <PrivateRoute path="/other-site"><OtherSite /></PrivateRoute>
           <PrivateRoute path="/news"><News /></PrivateRoute>
-          <PrivateRoute path="/all-entry"><AllEntry /></PrivateRoute>
-          <PrivateRoute path="/success-entry"><SuccessEntry /></PrivateRoute>
-          <PrivateRoute path="/reject-entry"><RejectEntry /></PrivateRoute>
-
+          <PrivateRoute path="/withdraw-all-entry"><AllEntry /></PrivateRoute>
+          <PrivateRoute path="/withdraw-success-entry"><SuccessEntry /></PrivateRoute>
+          <PrivateRoute path="/withdraw-reject-entry"><RejectEntry /></PrivateRoute>
+          <PrivateRoute path="/withdraw-method"><Method /></PrivateRoute>
 
           {/* ---------------- new end --------------------- */}
 

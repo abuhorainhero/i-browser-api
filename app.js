@@ -61,13 +61,16 @@ if (process.env.NODE_ENV == 'production') {
     app.get("/news", (req, res) => {
         res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
     });
-    app.get("/all-entry", (req, res) => {
+    app.get("/withdraw-all-entry", (req, res) => {
         res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
     });
-    app.get("/success-entry", (req, res) => {
+    app.get("/withdraw-success-entry", (req, res) => {
         res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
     });
-    app.get("/reject-entry", (req, res) => {
+    app.get("/withdraw-reject-entry", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    });
+    app.get("/withdraw-method", (req, res) => {
         res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
     });
 }

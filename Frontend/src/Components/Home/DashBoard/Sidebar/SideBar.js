@@ -3,7 +3,18 @@ import { Link, useLocation } from "react-router-dom";
 import "./SideBar.css";
 
 import AddToQueueIcon from '@material-ui/icons/AddToQueue';
-
+import PeopleIcon from '@material-ui/icons/People';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import StarsIcon from '@material-ui/icons/Stars';
+import LocationCityIcon from '@material-ui/icons/LocationCity';
+import PublicIcon from '@material-ui/icons/Public';
+import WebIcon from '@material-ui/icons/Web';
+import WebAssetIcon from '@material-ui/icons/WebAsset';
+import FiberNewIcon from '@material-ui/icons/FiberNew';
+import MoneyIcon from '@material-ui/icons/Money';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import MoneyOffIcon from '@material-ui/icons/MoneyOff';
+import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
@@ -73,7 +84,7 @@ const SideBar = (props) => {
                     className={`side_bar_li ${location.pathname === "/users" && "active"
                       }`}
                   >
-                    <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                    <PeopleIcon style={{ color: "#ffffff" }} /> &nbsp;
                     Users
                   </li>
                 </Link>
@@ -84,7 +95,7 @@ const SideBar = (props) => {
                     className={`side_bar_li ${location.pathname === "/admin" && "active"
                       }`}
                   >
-                    <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                    <PersonAddIcon style={{ color: "#ffffff" }} /> &nbsp;
                     Admins
                   </li>
                 </Link>
@@ -113,7 +124,7 @@ const SideBar = (props) => {
                   className={`side_bar_li ${location.pathname === "/interest" && "active"
                     }`}
                 >
-                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  <StarsIcon style={{ color: "#ffffff" }} /> &nbsp;
                   Interest
                 </li>
               </Link>
@@ -125,7 +136,7 @@ const SideBar = (props) => {
                   className={`side_bar_li ${location.pathname === "/city" && "active"
                     }`}
                 >
-                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  <LocationCityIcon style={{ color: "#ffffff" }} /> &nbsp;
                   City
                 </li>
               </Link>
@@ -138,7 +149,7 @@ const SideBar = (props) => {
                   className={`side_bar_li ${location.pathname === "/country" && "active"
                     }`}
                 >
-                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  <PublicIcon style={{ color: "#ffffff" }} /> &nbsp;
                   Country
                 </li>
               </Link>
@@ -162,7 +173,7 @@ const SideBar = (props) => {
                   className={`side_bar_li ${location.pathname === "/special-site" && "active"
                     }`}
                 >
-                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  <WebIcon style={{ color: "#ffffff" }} /> &nbsp;
                   Special Site
                 </li>
               </Link>
@@ -172,7 +183,7 @@ const SideBar = (props) => {
                   className={`side_bar_li ${location.pathname === "/other-site" && "active"
                     }`}
                 >
-                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  <WebAssetIcon style={{ color: "#ffffff" }} /> &nbsp;
                   Other Site
                 </li>
               </Link>
@@ -186,7 +197,7 @@ const SideBar = (props) => {
                   className={`side_bar_li ${location.pathname === "/news" && "active"
                     }`}
                 >
-                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  <FiberNewIcon style={{ color: "#ffffff" }} /> &nbsp;
                   News
                 </li>
               </Link>
@@ -205,35 +216,46 @@ const SideBar = (props) => {
                 down === "withdraw" ? "drop_down active" : "drop_down"
               }
             >
-              <Link id="link_a" to="/all-entry">
+              <Link id="link_a" to="/withdraw-all-entry">
                 <li
                   className={`side_bar_li ${location.pathname === "/all-entry" && "active"
                     }`}
                 >
-                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
-                  ALL ENTRY
+                  <MoneyIcon style={{ color: "#ffffff" }} /> &nbsp;
+                  ALL Entry
                 </li>
               </Link>
 
-              <Link id="link_a" to="/success-entry">
+              <Link id="link_a" to="/withdraw-success-entry">
                 <li
                   className={`side_bar_li ${location.pathname === "/success-entry" && "active"
                     }`}
                 >
-                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  <MonetizationOnIcon style={{ color: "#ffffff" }} /> &nbsp;
                   Success Entry
                 </li>
               </Link>
 
-              <Link id="link_a" to="/reject-entry">
+              <Link id="link_a" to="/withdraw-reject-entry">
                 <li
                   className={`side_bar_li ${location.pathname === "/reject-entry" && "active"
                     }`}
                 >
-                  <LocalMallIcon style={{ color: "#bd0404" }} /> &nbsp;
+                  <MoneyOffIcon style={{ color: "#ffffff" }} /> &nbsp;
                   Reject Entry
                 </li>
               </Link>
+
+              <Link id="link_a" to="/withdraw-method">
+                <li
+                  className={`side_bar_li ${location.pathname === "/withdraw-method" && "active"
+                    }`}
+                >
+                  <LocalAtmIcon style={{ color: "#ffffff" }} /> &nbsp;
+                  Method
+                </li>
+              </Link>
+
             </div>
 
 
