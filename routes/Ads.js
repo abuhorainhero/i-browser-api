@@ -6,6 +6,7 @@ const { checkValidator } = require("../ValidatorMiddleware/ValidatorResult");
 const {
   adsCreate,
   adsGetAll,
+  adsGetLimit,
   adsGetOne,
   adsUpdate,
   adsDelete,
@@ -13,6 +14,7 @@ const {
 
 router.post("/create", adsValidator, checkValidator, adsCreate);
 router.get("/get-all", adsGetAll);
+router.get("/get-limit/:start", adsGetLimit);
 router.get("/get-one/:id", adsGetOne);
 router.patch("/update-one/:id", adsValidator, checkValidator, adsUpdate);
 router.delete("/delete-one/:id", adsDelete);

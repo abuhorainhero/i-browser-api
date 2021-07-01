@@ -9,7 +9,10 @@ const {
   userGetOne,
   userUpdate,
   userDelete,
-  loginController
+  loginController,
+  
+  forgetPassword,
+  resetPassword
 } = require("../Controllers/UserController");
 
 router.post("/create", userValidator, checkValidator, userCreate);
@@ -19,5 +22,8 @@ router.patch("/update-one/:id", userUpdate);
 router.delete("/delete-one/:id", userDelete);
 
 router.post("/user-login", loginController);
+
+router.post("/forget-password", forgetPassword);
+router.patch("/reset-password", resetPassword);
 
 module.exports = router;

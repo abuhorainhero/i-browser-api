@@ -123,16 +123,15 @@ const adminDelete = async (req, res, next) => {
       });
     }
 
-    const admin = await admin_get_all()
+    const admin = await admin_get_one(id)
     const adminObj = JSON.parse(JSON.stringify(admin));
 
-   
-      return res.status(200).json({
-        error: false,
-        admin: adminObj,
-        message: "admin delete successfully",
-      });
-    
+    return res.status(200).json({
+      error: false,
+      admin: adminObj,
+      message: "admin delete successfully",
+    });
+
   } catch (error) {
     return res.status(500).json({
       error: error,

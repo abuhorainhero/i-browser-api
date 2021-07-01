@@ -3,7 +3,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
-// ---------- my own ------------
+// ------------------- my own -----------------------
 require("dotenv").config();
 const db = require("./DB/DB");
 const cors = require("cors");

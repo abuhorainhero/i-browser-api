@@ -109,16 +109,21 @@ const specialRevenueSiteDelete = async (req, res, next) => {
   try {
     const { id } = req.params;
     //console.log(id);
-    const specialRevenueSite = await specialRevenueSite_delete(id);
-    const specialRevenueSiteObj = JSON.parse(JSON.stringify(specialRevenueSite));
-
-    if (specialRevenueSiteObj.ok) {
-      return res.status(200).json({
-        error: false,
-        specialRevenueSite: specialRevenueSiteObj,
-        message: "specialRevenueSite delete successfully",
-      });
+    const specialRevenueSiteDel = await specialRevenueSite_delete(id);
+    if (!specialRevenueSiteDel) {
+      return res.status(400).json({
+        error: true,
+        specialRevenueSite: null,
+        message: "Special Revenue Site not Deleted!"
+      })
     }
+    const specialRevenueSite = await specialRevenueSite_get_one(id);
+    const specialRevenueSiteObj = JSON.parse(JSON.stringify(specialRevenueSite));
+    return res.status(200).json({
+      error: false,
+      specialRevenueSite: specialRevenueSiteObj,
+      message: "specialRevenueSite delete successfully",
+    });
   } catch (error) {
     return res.status(500).json({
       error: error,

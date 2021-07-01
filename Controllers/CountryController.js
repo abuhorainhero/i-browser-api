@@ -72,16 +72,23 @@ const countryUpdate = async (req, res, next) => {
     const info = req.body;
     const { id } = req.params;
     //console.log(id, info);
-    const country = await country_update(id, info);
+    const countryUp = await country_update(id, info);
+    if (!countryUp) {
+      return res.status(400).json({
+        error: true,
+        country: null,
+        message: "Country not updated!"
+      })
+    }
+
+    const country = await country_get_one(id);
     const countryObj = JSON.parse(JSON.stringify(country));
 
-    if (countryObj.ok) {
-      return res.status(200).json({
-        error: false,
-        country: countryObj,
-        message: "Country update successfully",
-      });
-    }
+    return res.status(200).json({
+      error: false,
+      country: countryObj,
+      message: "Country update successfully",
+    });
   } catch (error) {
     return res.status(500).json({
       error: error,
@@ -94,17 +101,23 @@ const countryUpdate = async (req, res, next) => {
 const countryDelete = async (req, res, next) => {
   try {
     const { id } = req.params;
-    //console.log(id);
-    const country = await country_delete(id);
+    const countryDel = await country_delete(id);
+    if (!countryDel) {
+      return res.status(400).json({
+        error: true,
+        country: null,
+        message: "Country not deleted!"
+      })
+    }
+
+    const country = await country_get_one(id);
     const countryObj = JSON.parse(JSON.stringify(country));
 
-    if (countryObj.ok) {
-      return res.status(200).json({
-        error: false,
-        country: countryObj,
-        message: "Country delete successfully",
-      });
-    }
+    return res.status(200).json({
+      error: false,
+      country: countryObj,
+      message: "Country delete successfully",
+    });
   } catch (error) {
     return res.status(500).json({
       error: error,
