@@ -17,7 +17,7 @@ const viewedAdsCreate = async (req, res, next) => {
     const user = await user_get_one(userId);
     console.log(ads, user)
 
-    const userUp = await user_update(userId, { walletAmount: user.walletAmount + ads.revenue })
+    const userUp = await user_update(userId, { walletAmount: user.walletAmount + ads.revenue, totalAdsViewed: user.totalAdsViewed + 1 })
 
     if (!userUp) {
       return res.status(400).json({

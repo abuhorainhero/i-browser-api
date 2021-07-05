@@ -95,19 +95,25 @@ const viewedAdsRouter = require("./routes/ViewedAds")
 const specialRevenueSiteRouter = require("./routes/SpecialRevenueSite")
 const otherRevenueSiteRouter = require("./routes/OtherRevenueSite")
 const adminRouter = require("./routes/Admin")
+const addSiteRevenueRouter = require("./routes/AddSiteRevenue")
 // ---
 app.use("/api/admin", adminRouter);
 app.use("/api/user", userRouter);
 app.use("/api/city", cityRouter);
 app.use("/api/country", countryRouter);
 app.use("/api/news", newsRouter);
-app.use("/api/ads", adsRouter);
 app.use("/api/interest", interestRouter);
 app.use("/api/bookmark", bookmarkRouter);
 app.use("/api/withdrawal-method", withdrawalMethodRouter);
 app.use("/api/withdrawal-request", withdrawalRequestRouter);
+
+app.use("/api/ads", adsRouter);
+
 app.use("/api/viewed-ads", viewedAdsRouter);
+
 app.use("/api/special-revenue-site", specialRevenueSiteRouter);
 app.use("/api/other-revenue-site", otherRevenueSiteRouter);
+
+app.use("/api/add-site-revenue", addSiteRevenueRouter);
 
 module.exports = app;

@@ -38,11 +38,11 @@ const userSchema = new Schema(
       type: Number,
       trim: true,
     },
-    totalMinuteServed: {
+    totalMinuteServed: {  // specialRevenueSite othersite e barbe
       type: Number,
       trim: true,
     },
-    totalAdsViewed: {
+    totalAdsViewed: {    // total ads view count hbe
       type: Number,
       trim: true,
     },
