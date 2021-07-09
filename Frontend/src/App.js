@@ -64,7 +64,6 @@ function App() {
 
           <PrivateRoute path="/ads"><Ads /></PrivateRoute>
           <PrivateRoute path="/interest"><Interest /></PrivateRoute>
-          <PrivateRoute path="/users"><Users /></PrivateRoute>
           <PrivateRoute path="/admin"><Admin /></PrivateRoute>
           <PrivateRoute path="/city"><City /></PrivateRoute>
           <PrivateRoute path="/country"><Country /></PrivateRoute>
@@ -78,9 +77,12 @@ function App() {
 
           {/* ---------------- new end --------------------- */}
 
-          <PrivateRoute path="/dashboard">
-            <DashBoard />
-          </PrivateRoute>
+          {/* ---------------- Final finished start --------------------*/}
+          <PrivateRoute path="/dashboard">  <DashBoard /></PrivateRoute>
+          <PrivateRoute path="/users"><Users /></PrivateRoute>
+
+
+          {/* ---------------- Final finished end --------------------*/}
 
           <Route path="/login">
             <LoginForm />

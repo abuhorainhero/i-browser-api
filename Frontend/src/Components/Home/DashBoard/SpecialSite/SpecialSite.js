@@ -95,34 +95,27 @@ const SpecialSite = (props) => {
         axios
             .get(`/api/special-revenue-site/get-one/${id}`)
             .then((res) => {
-                //console.log(res);
                 const { specialRevenueSite, error, message } = res.data;
                 setspecialSiteUpdate(specialRevenueSite);
             })
             .catch((err) => {
                 //console.log(err.response.data.message);
-                //alert(err.response.data.message);
             });
     };
 
     const handleDelete = (id) => {
-        //console.log("update ID ; ", id);
-
         axios
             .delete(
                 `/api/special-revenue-site/delete-one/${id}`
             )
             .then((res) => {
-                //console.log(res);
                 const { specialRevenueSite, error, message } = res.data;
                 createNotification("success", "DELETE", `${message}`);
                 setspecialSiteDeleteThen(specialRevenueSite);
             })
             .catch((err) => {
-                //console.log(err.response.data.message);
                 createNotification("warning", "FAILED", `${err.response.data.message}`);
             });
-
     }
 
     return (

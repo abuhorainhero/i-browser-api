@@ -279,7 +279,7 @@ const News = (props) => {
                                                     {info.title}
                                                 </td>
                                                 <td>
-                                                    <img style={{ height: "20px", width: "20px" }} src={info.image} alt="image" />
+                                                    <img style={{ height: "20px", width: "20px" }} src={info?.image} alt="image" />
                                                 </td>
                                                 <td>
                                                     {info.description}
