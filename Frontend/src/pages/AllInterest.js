@@ -47,7 +47,7 @@ const AllInterest = () => {
         if (interestUpdate) {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/interest/update-one/${interestUpdate._id}`, data)
+                    `/api/interest/update-one/${interestUpdate._id}`, data)
                 .then((res) => {
                     const { interest, error, message } = res.data;
                     closeModal()
@@ -60,7 +60,7 @@ const AllInterest = () => {
                 });
         } else {
             axios
-                .post("https://i-browser-api.herokuapp.com/api/interest/create", data)
+                .post("/api/interest/create", data)
                 .then((res) => {
                     const { interest, error, message } = res.data;
                     closeModal()
@@ -85,7 +85,7 @@ const AllInterest = () => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/interest/get-all")
+            .get("/api/interest/get-all")
             .then((res) => {
                 const { interest, error, message } = res.data;
                 setInterest(interest);
@@ -105,7 +105,7 @@ const AllInterest = () => {
     const handleDelete = (id) => {
         axios
             .delete(
-                `https://i-browser-api.herokuapp.com/api/interest/delete-one/${id}`
+                `/api/interest/delete-one/${id}`
             )
             .then((res) => {
                 const { interest, error, message } = res.data;

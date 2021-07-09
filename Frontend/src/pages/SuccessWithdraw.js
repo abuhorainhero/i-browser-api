@@ -10,7 +10,7 @@ const SuccessWithdraw = () => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/withdrawal-request/get-all")
+            .get("/api/withdrawal-request/get-all")
             .then((res) => {
                 const { withdrawalRequest, error, message } = res.data;
                 setsuccessEntry(withdrawalRequest?.filter(request => request?.status === "success"));
@@ -19,11 +19,11 @@ const SuccessWithdraw = () => {
                 //console.log(err.response?.data.message);
             });
 
-        axios.get("https://i-browser-api.herokuapp.com/api/withdrawal-method/get-all")
+        axios.get("/api/withdrawal-method/get-all")
             .then((res => setMethods(res.data.withdrawalMethod)))
             .catch((err) => console.log(err));
 
-        axios.get("https://i-browser-api.herokuapp.com/api/user/get-all")
+        axios.get("/api/user/get-all")
             .then(res => setUsers(res.data.user))
             .catch((err) => console.log(err));
     }, [])

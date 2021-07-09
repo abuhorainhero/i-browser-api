@@ -21,7 +21,7 @@ const Login = () => {
     const onSubmit = (data) => {
         if (data.email && data.password) {
             axios
-                .post(`https://i-browser-api.herokuapp.com/api/admin/admin-login`, data)
+                .post(`/api/admin/admin-login`, data)
                 .then((res) => {
                     //console.log("loginFrom 28 = ", res.data)
                     createNotification('success', 'LOG IN', 'Successfully !');

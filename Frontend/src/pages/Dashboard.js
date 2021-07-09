@@ -17,42 +17,42 @@ const Dashboard = () => {
     console.log(users, "..", ads, "...", country, "...", city, "...")
 
     useEffect(() => {
-        axios.get('https://i-browser-api.herokuapp.com/api/user/get-all')
+        axios.get('/api/user/get-all')
             .then(res => {
                 setUsers(res.data.user)
             }).catch(err => {
                 console.error(err)
             });
 
-        axios.get('https://i-browser-api.herokuapp.com/api/ads/get-all')
+        axios.get('/api/ads/get-all')
             .then(res => {
                 setAds(res.data.ads)
             }).catch(err => {
                 console.error(err)
             });
 
-        axios.get('https://i-browser-api.herokuapp.com/api/country/get-all')
+        axios.get('/api/country/get-all')
             .then(res => {
                 setCountry(res.data.country)
             }).catch(err => {
                 console.error(err)
             });
 
-        axios.get('https://i-browser-api.herokuapp.com/api/city/get-all')
+        axios.get('/api/city/get-all')
             .then(res => {
                 setCity(res.data.city)
             }).catch(err => {
                 console.error(err)
             });
 
-        axios.get('https://i-browser-api.herokuapp.com/api/withdrawal-request/get-all')
+        axios.get('/api/withdrawal-request/get-all')
             .then(res => {
                 setWithdrawalRequest(res.data.withdrawalRequest)
             }).catch(err => {
                 console.error(err)
             });
 
-        axios.get("https://i-browser-api.herokuapp.com/api/withdrawal-method/get-all")
+        axios.get("/api/withdrawal-method/get-all")
             .then((res => setMethods(res.data.withdrawalMethod)))
             .catch((err) => console.log(err));
     }, [])

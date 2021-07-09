@@ -56,7 +56,7 @@ const WithdrawMethod = () => {
         if (methodUpdate) {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/withdrawal-method/update-one/${methodUpdate._id}`,
+                    `/api/withdrawal-method/update-one/${methodUpdate._id}`,
                     data
                 )
                 .then((res) => {
@@ -71,7 +71,7 @@ const WithdrawMethod = () => {
                 });
         } else {
             axios
-                .post("https://i-browser-api.herokuapp.com/api/withdrawal-method/create", data)
+                .post("/api/withdrawal-method/create", data)
                 .then((res) => {
                     const { withdrawalMethod, error, message } = res.data;
                     closeModal();
@@ -96,7 +96,7 @@ const WithdrawMethod = () => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/withdrawal-method/get-all")
+            .get("/api/withdrawal-method/get-all")
             .then((res) => {
                 const { withdrawalMethod, error, message } = res.data;
                 setmethod(withdrawalMethod);
@@ -110,7 +110,7 @@ const WithdrawMethod = () => {
     const handleDelete = (id) => {
         axios
             .delete(
-                `https://i-browser-api.herokuapp.com/api/withdrawal-method/delete-one/${id}`
+                `/api/withdrawal-method/delete-one/${id}`
             )
             .then((res) => {
                 const { withdrawalMethod, error, message } = res.data;

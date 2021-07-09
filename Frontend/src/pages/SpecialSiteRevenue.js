@@ -59,7 +59,7 @@ const AllSiteRevenue = () => {
         if (specialSiteUpdate) {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/special-revenue-site/update-one/${specialSiteUpdate._id}`,
+                    `/api/special-revenue-site/update-one/${specialSiteUpdate._id}`,
                     data
                 )
                 .then((res) => {
@@ -78,7 +78,7 @@ const AllSiteRevenue = () => {
                 });
         } else {
             axios
-                .post("https://i-browser-api.herokuapp.com/api/special-revenue-site/create", data)
+                .post("/api/special-revenue-site/create", data)
                 .then((res) => {
                     console.log("specialSite 57 =", res);
                     const { specialRevenueSite, error, message } = res.data;
@@ -103,7 +103,7 @@ const AllSiteRevenue = () => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/special-revenue-site/get-all")
+            .get("/api/special-revenue-site/get-all")
             .then((res) => {
                 //console.log("specialSite 83 =", res);
                 const { specialRevenueSite, error, message } = res.data;
@@ -120,7 +120,7 @@ const AllSiteRevenue = () => {
 
         axios
             .delete(
-                `https://i-browser-api.herokuapp.com/api/special-revenue-site/delete-one/${id}`
+                `/api/special-revenue-site/delete-one/${id}`
             )
             .then((res) => {
                 //console.log(res);

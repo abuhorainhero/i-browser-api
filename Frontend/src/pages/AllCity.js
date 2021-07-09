@@ -58,7 +58,7 @@ const AllCity = () => {
         if (cityUpdate) {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/city/update-one/${cityUpdate._id}`,
+                    `/api/city/update-one/${cityUpdate._id}`,
                     data
                 )
                 .then((res) => {
@@ -73,7 +73,7 @@ const AllCity = () => {
                 });
         } else {
             axios
-                .post("https://i-browser-api.herokuapp.com/api/city/create", data)
+                .post("/api/city/create", data)
                 .then((res) => {
                     const { city, error, message } = res.data;
                     closeModal()
@@ -93,7 +93,7 @@ const AllCity = () => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/city/get-all")
+            .get("/api/city/get-all")
             .then((res) => {
                 const { city, error, message } = res.data;
                 setCity(city);
@@ -106,7 +106,7 @@ const AllCity = () => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/country/get-all")
+            .get("/api/country/get-all")
             .then((res) => {
                 const { country, error, message } = res.data;
                 setCountry(country)
@@ -116,7 +116,7 @@ const AllCity = () => {
             });
 
         axios
-            .get("https://i-browser-api.herokuapp.com/api/user/get-all").then(res => {
+            .get("/api/user/get-all").then(res => {
                 setUsers(res.data.user)
             }).catch((err) => {
                 //console.log(err);
@@ -126,7 +126,7 @@ const AllCity = () => {
     const handleDelete = (id) => {
         axios
             .delete(
-                `https://i-browser-api.herokuapp.com/api/city/delete-one/${id}`
+                `/api/city/delete-one/${id}`
             )
             .then((res) => {
                 //console.log(res);

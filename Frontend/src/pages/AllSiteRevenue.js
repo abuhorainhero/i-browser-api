@@ -47,7 +47,7 @@ const AllSiteRevenue = () => {
         if (otherSiteUpdate) {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/other-revenue-site/update-one/${otherSiteUpdate._id}`,
+                    `/api/other-revenue-site/update-one/${otherSiteUpdate._id}`,
                     data
                 )
                 .then((res) => {
@@ -73,7 +73,7 @@ const AllSiteRevenue = () => {
     console.log(otherSite)
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/other-revenue-site/get-all")
+            .get("/api/other-revenue-site/get-all")
             .then((res) => {
                 const { otherRevenueSite } = res.data;
                 setotherSite(otherRevenueSite);

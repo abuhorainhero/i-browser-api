@@ -27,20 +27,20 @@ const Users = () => {
     const [accessbility, setAccessbility] = useContext(UserContext);
 
     useEffect(() => {
-        axios.get('https://i-browser-api.herokuapp.com/api/user/get-all')
+        axios.get('/api/user/get-all')
             .then(res => setUsers(res.data.user))
             .catch(err => console.error(err));
 
-        axios.get('https://i-browser-api.herokuapp.com/api/country/get-all')
+        axios.get('/api/country/get-all')
             .then(res => setCountry(res.data.country))
             .catch(err => console.error(err));
 
-        axios.get('https://i-browser-api.herokuapp.com/api/city/get-all')
+        axios.get('/api/city/get-all')
             .then(res => setCity(res.data.city))
             .catch(err => console.error(err));
 
 
-        axios.get("https://i-browser-api.herokuapp.com/api/withdrawal-method/get-all")
+        axios.get("/api/withdrawal-method/get-all")
             .then((res => setMethods(res.data.withdrawalMethod)))
             .catch((err) => console.log(err));
     }, []);
@@ -58,7 +58,7 @@ const Users = () => {
     // ------------------------------- modal / popup function end -------------------------------
 
     const handleUser = (id) => {
-        axios.get(`https://i-browser-api.herokuapp.com/api/user/get-one/${id}`)
+        axios.get(`/api/user/get-one/${id}`)
             .then(res => {
                 setModalUser(res.data.user);
                 openModal();

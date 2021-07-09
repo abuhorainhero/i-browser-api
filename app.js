@@ -18,60 +18,57 @@ app.use(cookieParser());
 
 // --------------- initial setup for live site ---------------
 if (process.env.NODE_ENV == 'production') {
-    app.use(express.static('Frontend/build'));
+    app.use(express.static('frontend/build'));
     app.get(`/`, (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
-    app.get("/home", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    app.get("/all-ads", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
-    app.get("/ads", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
-    });
-    app.get("/interest", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    app.get("/all-interest", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
     app.get("/users", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
     app.get("/admin", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
-    app.get("/city", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    app.get("/all-city", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
-    app.get("/country", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    app.get("/all-country", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
     app.get("/dashboard", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
     app.get("/login", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
     app.get("/profile", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
-    app.get("/special-site", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    app.get("/special-site-revenue", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
-    app.get("/other-site", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    app.get("/all-site-revenue", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
-    app.get("/news", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    app.get("/all-news", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
-    app.get("/withdraw-all-entry", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    app.get("/all-withdraw", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
-    app.get("/withdraw-success-entry", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    app.get("/success-withdraw", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
-    app.get("/withdraw-reject-entry", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+    app.get("/reject-withdraw", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
     app.get("/withdraw-method", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
 }
 

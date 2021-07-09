@@ -1,99 +1,119 @@
-import "./App.css";
+import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from "./Components/Home/Home";
-import NotFound from "./Components/Home/NotFound/NotFound";
-import DashBoard from "./Components/Home/DashBoard/DashBoard";
-
-import LoginForm from "./Components/Home/LoginForm/LoginForm";
-import Profile from "./Components/Home/Profile/Profile";
-import { createContext, useEffect, useState } from "react";
-import PrivateRoute from "./Components/Home/LoginForm/PrivateRoute";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Dashboard from './pages/Dashboard'
+import Users from './pages/Users';
+import Admin from './pages/Admin';
+import AllAds from './pages/AllAds';
+import AllInterest from './pages/AllInterest';
+import AllCountry from './pages/AllCountry';
+import AllCity from './pages/AllCity';
+import AllNews from './pages/AllNews';
+import AllSiteRevenue from './pages/AllSiteRevenue';
+import SpecialSiteRevenue from './pages/SpecialSiteRevenue';
+import AllWithdraw from './pages/AllWithdraw';
+import SuccessWithdraw from './pages/SuccessWithdraw';
+import RejectWithdraw from './pages/RejectWithdraw';
+import WithdrawMethod from './pages/WithdrawMethod';
+import { useEffect, useState, createContext } from 'react';
+import axios from 'axios';
+import LocallyStore from './components/LocallyStore';
 import 'react-notifications/lib/notifications.css';
-import axios from "axios";
-import LocalStorage from "./Components/Home/LocalStorage";
-import loading from './Images/loading.gif';
-import Ads from "./Components/Home/DashBoard/Ads/Ads";
-import Interest from "./Components/Home/DashBoard/Interest/Interest";
-import Users from "./Components/Home/DashBoard/Users/Users";
-import Admin from "./Components/Home/DashBoard/Admin/Admin";
-import City from "./Components/Home/DashBoard/City/City";
-import Country from "./Components/Home/DashBoard/Country/Country";
-import SpecialSite from "./Components/Home/DashBoard/SpecialSite/SpecialSite";
-import OtherSite from "./Components/Home/DashBoard/OtherSIte/OtherSite";
-import News from "./Components/Home/DashBoard/News/News";
-import AllEntry from "./Components/Home/DashBoard/Withdraw/AllEntry";
-import SuccessEntry from "./Components/Home/DashBoard/Withdraw/SuccessEntry";
-import RejectEntry from "./Components/Home/DashBoard/Withdraw/RejectEntry";
-import Method from "./Components/Home/DashBoard/Withdraw/Method";
-// ------------------------------------------------------- new ---------------
+import Login from './pages/Login';
+import PrivateRoute from './components/PrivateRoute';
+import NotFound from './components/NotFound'
 
-export const UserContext = createContext();
+export const UserContext = createContext()
 
 function App() {
-  const [accessbility, setAccessbility] = useState({});
-  const [loggedInUser] = LocalStorage("loggedInUser", {});
+  const [accessibility, setAccessibility] = useState({});
+  const [loggedInUser] = LocallyStore("loggedInUser", {});
 
 
   useEffect(() => {
-    // //console.log('hit api')
     if (loggedInUser?._id) {
       axios
         .get(`/api/admin/get-one/${loggedInUser._id}`)
         .then((res) => {
-          setAccessbility(res.data.admin);
-        })
+          setAccessibility(res?.data?.admin);
+        });
     }
-  }, [loggedInUser])
+  }, [loggedInUser, accessibility]);
 
+  console.log("App to -= ", accessibility, ".... ", loggedInUser)
 
   return (
-    <UserContext.Provider value={[accessbility, setAccessbility]}>
-
+    <UserContext.Provider value={[accessibility, setAccessibility]}>
 
       <Router>
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
 
-          {/* -------------- new start --------------------- */}
-
-          <PrivateRoute path="/ads"><Ads /></PrivateRoute>
-          <PrivateRoute path="/interest"><Interest /></PrivateRoute>
-          <PrivateRoute path="/admin"><Admin /></PrivateRoute>
-          <PrivateRoute path="/city"><City /></PrivateRoute>
-          <PrivateRoute path="/country"><Country /></PrivateRoute>
-          <PrivateRoute path="/special-site"><SpecialSite /></PrivateRoute>
-          <PrivateRoute path="/other-site"><OtherSite /></PrivateRoute>
-          <PrivateRoute path="/news"><News /></PrivateRoute>
-          <PrivateRoute path="/withdraw-all-entry"><AllEntry /></PrivateRoute>
-          <PrivateRoute path="/withdraw-success-entry"><SuccessEntry /></PrivateRoute>
-          <PrivateRoute path="/withdraw-reject-entry"><RejectEntry /></PrivateRoute>
-          <PrivateRoute path="/withdraw-method"><Method /></PrivateRoute>
-
-          {/* ---------------- new end --------------------- */}
-
-          {/* ---------------- Final finished start --------------------*/}
-          <PrivateRoute path="/dashboard">  <DashBoard /></PrivateRoute>
-          <PrivateRoute path="/users"><Users /></PrivateRoute>
-
-
-          {/* ---------------- Final finished end --------------------*/}
-
-          <Route path="/login">
-            <LoginForm />
-          </Route>
-          <PrivateRoute path="/profile">
-            <Profile />
+          <PrivateRoute exact path="/">
+            <Dashboard />
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard">
+            <Dashboard />
           </PrivateRoute>
 
-          <Route path="*"> <NotFound /> </Route>
+          <PrivateRoute path="/users">
+            <Users />
+          </PrivateRoute>
+
+          <PrivateRoute path="/admin">
+            <Admin />
+          </PrivateRoute>
+
+          <PrivateRoute path="/all-ads" >
+            <AllAds />
+          </PrivateRoute>
+
+          <PrivateRoute path="/all-interest">
+            <AllInterest />
+          </PrivateRoute>
+
+          <PrivateRoute path="/all-country">
+            <AllCountry />
+          </PrivateRoute>
+
+          <PrivateRoute path="/all-city">
+            <AllCity />
+          </PrivateRoute>
+
+          <PrivateRoute path="/all-news" >
+            <AllNews />
+          </PrivateRoute>
+
+          <PrivateRoute path="/all-site-revenue" >
+            <AllSiteRevenue />
+          </PrivateRoute>
+
+          <PrivateRoute path="/special-site-revenue">
+            <SpecialSiteRevenue />
+          </PrivateRoute>
+
+          <PrivateRoute path="/all-withdraw">
+            <AllWithdraw />
+          </PrivateRoute>
+
+          <PrivateRoute path="/success-withdraw" >
+            <SuccessWithdraw />
+          </PrivateRoute>
+
+          <PrivateRoute path="/reject-withdraw">
+            <RejectWithdraw />
+          </PrivateRoute>
+
+          <PrivateRoute path="/withdraw-method">
+            <WithdrawMethod />
+          </PrivateRoute>
+
+          <Route path="/login" component={Login} />
+
+          <Route path="*" component={NotFound} />
+
         </Switch>
       </Router>
+
     </UserContext.Provider>
   );
 }

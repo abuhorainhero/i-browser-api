@@ -57,7 +57,7 @@ const AllNews = () => {
         if (newsUpdate) {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/news/update-one/${newsUpdate._id}`,
+                    `/api/news/update-one/${newsUpdate._id}`,
                     data
                 )
                 .then((res) => {
@@ -77,7 +77,7 @@ const AllNews = () => {
                 });
         } else {
             axios
-                .post("https://i-browser-api.herokuapp.com/api/news/create", data)
+                .post("/api/news/create", data)
                 .then((res) => {
                     closeModal();
                     const { news, error, message } = res.data;
@@ -101,7 +101,7 @@ const AllNews = () => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/news/get-all")
+            .get("/api/news/get-all")
             .then((res) => {
                 //console.log("news 83 =", res);
                 const { news, error, message } = res.data;
@@ -116,7 +116,7 @@ const AllNews = () => {
     const handleDelete = (id) => {
         axios
             .delete(
-                `https://i-browser-api.herokuapp.com/api/news/delete-one/${id}`
+                `/api/news/delete-one/${id}`
             )
             .then((res) => {
                 const { news, error, message } = res.data;

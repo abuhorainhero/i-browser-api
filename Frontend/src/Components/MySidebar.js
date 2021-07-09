@@ -64,13 +64,13 @@ const MySidebar = () => {
                                         <span className="pcoded-mcaret"></span>
                                     </Link>
                                 </li>
-                                <li className=" ">
+                                {/* <li className=" ">
                                     <Link to="/add-ads">
                                         <span className="pcoded-micon"><i className="ti-angle-right"></i></span>
                                         <span className="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Add New</span>
                                         <span className="pcoded-mcaret"></span>
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </li>
                         <li className="pcoded-hasmenu">
@@ -87,13 +87,13 @@ const MySidebar = () => {
                                         <span className="pcoded-mcaret"></span>
                                     </Link>
                                 </li>
-                                <li className=" ">
+                                {/* <li className=" ">
                                     <Link to="/add-interest">
                                         <span className="pcoded-micon"><i className="ti-angle-right"></i></span>
                                         <span className="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Add New</span>
                                         <span className="pcoded-mcaret"></span>
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </li>
                         <li className="pcoded-hasmenu">
@@ -110,13 +110,13 @@ const MySidebar = () => {
                                         <span className="pcoded-mcaret"></span>
                                     </Link>
                                 </li>
-                                <li className=" ">
+                                {/* <li className=" ">
                                     <Link to="/add-country">
                                         <span className="pcoded-micon"><i className="ti-angle-right"></i></span>
                                         <span className="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Add New</span>
                                         <span className="pcoded-mcaret"></span>
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </li>
                         <li className="pcoded-hasmenu">
@@ -133,13 +133,13 @@ const MySidebar = () => {
                                         <span className="pcoded-mcaret"></span>
                                     </Link>
                                 </li>
-                                <li className=" ">
+                                {/* <li className=" ">
                                     <Link to="/add-city">
                                         <span className="pcoded-micon"><i className="ti-angle-right"></i></span>
                                         <span className="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Add New</span>
                                         <span className="pcoded-mcaret"></span>
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </li>
                         <li className="pcoded-hasmenu">
@@ -156,13 +156,13 @@ const MySidebar = () => {
                                         <span className="pcoded-mcaret"></span>
                                     </Link>
                                 </li>
-                                <li className=" ">
+                                {/* <li className=" ">
                                     <Link to="/add-news">
                                         <span className="pcoded-micon"><i className="ti-angle-right"></i></span>
                                         <span className="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Add New</span>
                                         <span className="pcoded-mcaret"></span>
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </li>
                         <li className="pcoded-hasmenu">

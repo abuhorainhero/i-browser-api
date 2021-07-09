@@ -58,7 +58,7 @@ const AllWithdraw = () => {
         if (allEntryUpdate) {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/withdrawal-request/update-one/${allEntryUpdate._id}`,
+                    `/api/withdrawal-request/update-one/${allEntryUpdate._id}`,
                     data
                 )
                 .then((res) => {
@@ -77,7 +77,7 @@ const AllWithdraw = () => {
                 });
         } else {
             axios
-                .post("https://i-browser-api.herokuapp.com/api/withdrawal-request/create", data)
+                .post("/api/withdrawal-request/create", data)
                 .then((res) => {
                     const { withdrawalRequest, error, message } = res.data;
                     closeModal();
@@ -102,7 +102,7 @@ const AllWithdraw = () => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/withdrawal-request/get-all")
+            .get("/api/withdrawal-request/get-all")
             .then((res) => {
                 //console.log("allEntry 83 =", res);
                 const { withdrawalRequest, error, message } = res.data;
@@ -115,11 +115,11 @@ const AllWithdraw = () => {
     }, [newallEntry, allEntryUpInfo]);
 
     useEffect(() => {
-        axios.get("https://i-browser-api.herokuapp.com/api/withdrawal-method/get-all")
+        axios.get("/api/withdrawal-method/get-all")
             .then((res => setMethods(res.data.withdrawalMethod)))
             .catch((err) => console.log(err));
 
-        axios.get("https://i-browser-api.herokuapp.com/api/user/get-all")
+        axios.get("/api/user/get-all")
             .then(res => setUsers(res.data.user))
             .catch((err) => console.log(err));
     }, [])

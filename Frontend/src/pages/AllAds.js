@@ -45,7 +45,7 @@ const AllAds = () => {
         if (adsUpdate) {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/ads/update-one/${adsUpdate._id}`,
+                    `/api/ads/update-one/${adsUpdate._id}`,
                     data
                 )
                 .then((res) => {
@@ -62,7 +62,7 @@ const AllAds = () => {
                 });
         } else {
             axios
-                .post("https://i-browser-api.herokuapp.com/api/ads/create", data)
+                .post("/api/ads/create", data)
                 .then((res) => {
                     const { ads, error, message } = res.data;
                     createNotification("success", "SUCCESSFULLY", `${message}`);
@@ -88,7 +88,7 @@ const AllAds = () => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/ads/get-all")
+            .get("/api/ads/get-all")
             .then((res) => {
                 const { ads, error, message } = res.data;
                 setAds(ads);
@@ -108,7 +108,7 @@ const AllAds = () => {
     const handleDelete = (id) => {
         axios
             .delete(
-                `https://i-browser-api.herokuapp.com/api/ads/delete-one/${id}`
+                `/api/ads/delete-one/${id}`
             )
             .then((res) => {
                 //console.log(res);

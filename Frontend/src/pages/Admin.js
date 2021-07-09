@@ -36,7 +36,7 @@ const Admin = () => {
         if (adminUpdate) {
             axios
                 .patch(
-                    `https://i-browser-api.herokuapp.com/api/admin/update-one/${selectItem._id}`,
+                    `/api/admin/update-one/${selectItem._id}`,
                     data
                 )
                 .then((res) => {
@@ -56,7 +56,7 @@ const Admin = () => {
         } else {
             axios
                 .post(
-                    "https://i-browser-api.herokuapp.com/api/admin/create",
+                    "/api/admin/create",
                     data
                 )
                 .then((res) => {
@@ -76,7 +76,7 @@ const Admin = () => {
 
     useEffect(() => {
         axios
-            .get("https://i-browser-api.herokuapp.com/api/admin/get-all")
+            .get("/api/admin/get-all")
             .then((res) => setAdmins(res?.data?.admin))
             .catch((err) => console.log(err));
     }, [reload]);
@@ -101,7 +101,7 @@ const Admin = () => {
     const handleDelete = (id) => {
         axios
             .delete(
-                `https://i-browser-api.herokuapp.com/api/admin/delete-one/${id}`
+                `/api/admin/delete-one/${id}`
             )
             .then((res) => {
                 const { admin, error, message } = res.data;

@@ -1,24 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" type="text/css" href="path/to/notifications.css">
+<head>
+  <title>iBrowser Admin Panel - Best Browser for you</title>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="RayBim Technologies">
+  <meta name="keywords" content=" RayBim Technologies, iBrowser, Internet Browser, Best Browser, Internet, Mobile Apps">
+  <meta name="author" content="RayBim Technologies">
+  <!-- Favicon icon -->
+  <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
+  <!-- Google font-->
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,600" rel="stylesheet">
+  <!-- Required Fremwork -->
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+  <!-- themify-icons line icon -->
+  <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+  <!-- ico font -->
+  <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+  <!-- Style.css -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
 
-    <title>iBrowser Admin</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+</head>
 
-  </body>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+  <!-- Shariyar bhai code start -->
+  <!-- Required Jquery -->
+  <script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+  <!-- jquery slimscroll js -->
+  <script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+  <!-- modernizr js -->
+  <script type="text/javascript" src="assets/js/modernizr/modernizr.js"></script>
+  <!-- am chart -->
+  <script src="assets/pages/widget/amchart/amcharts.min.js"></script>
+  <script src="assets/pages/widget/amchart/serial.min.js"></script>
+  <!-- Todo js -->
+  <script type="text/javascript " src="assets/pages/todo/todo.js "></script>
+  <!-- Custom js -->
+  <script type="text/javascript" src="assets/pages/dashboard/custom-dashboard.js"></script>
+  <script type="text/javascript" src="assets/js/script.js"></script>
+  <script type="text/javascript " src="assets/js/SmoothScroll.js"></script>
+  <script src="assets/js/pcoded.min.js"></script>
+  <script src="assets/js/demo-12.js"></script>
+  <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script>
+    var $window = $(window);
+    var nav = $('.fixed-button');
+    $window.scroll(function () {
+      if ($window.scrollTop() >= 200) {
+        nav.addClass('active');
+      }
+      else {
+        nav.removeClass('active');
+      }
+    });
+  </script>
+  <!-- Shariyar bhai code end -->
+</body>
+
 </html>
