@@ -237,7 +237,6 @@ const MySidebar = () => {
                     </ul>
                 </div>
             </nav>
-
         </>
     );
 };
