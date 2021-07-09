@@ -107,9 +107,11 @@ function App() {
             <WithdrawMethod />
           </PrivateRoute>
 
-          <Route path="/login" component={Login} />
+          <Route path="/login">
+            <Login />
+          </Route>
 
-          <Route path="*" component={NotFound} />
+          {/* <Route path="*" component={NotFound} /> */}
 
         </Switch>
       </Router>
