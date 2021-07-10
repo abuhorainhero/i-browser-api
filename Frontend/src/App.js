@@ -38,7 +38,7 @@ function App() {
           setAccessibility(res?.data?.admin);
         });
     }
-  }, [loggedInUser, accessibility]);
+  }, [loggedInUser]);
 
   console.log("App to -= ", accessibility, ".... ", loggedInUser)
 

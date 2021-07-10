@@ -14,8 +14,6 @@ const Dashboard = () => {
     const [withdrawalRequest, setWithdrawalRequest] = useState([]);
     const [methods, setMethods] = useState([]);
 
-    console.log(users, "..", ads, "...", country, "...", city, "...")
-
     useEffect(() => {
         axios.get('/api/user/get-all')
             .then(res => {
@@ -55,11 +53,6 @@ const Dashboard = () => {
         axios.get("/api/withdrawal-method/get-all")
             .then((res => setMethods(res.data.withdrawalMethod)))
             .catch((err) => console.log(err));
-    }, [])
-
-
-    useEffect(() => {
-        // window.location.reload();
     }, [])
 
     return (

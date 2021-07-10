@@ -18,58 +18,58 @@ app.use(cookieParser());
 
 // --------------- initial setup for live site ---------------
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('frontend/build'));
-    app.get(`/`, (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    app.use(express.static('Frontend/build'));
+    app.get(`*`, (req, res) => {
+        res.sendFile(path.resolve(__dirname, "Frontend", "build", "index.html"));
     });
-    app.get("/all-ads", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/all-interest", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/users", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/admin", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/all-city", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/all-country", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/dashboard", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/login", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/profile", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/special-site-revenue", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/all-site-revenue", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/all-news", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/all-withdraw", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/success-withdraw", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/reject-withdraw", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    app.get("/withdraw-method", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
+    // app.get("/all-ads", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/all-interest", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/users", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/admin", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/all-city", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/all-country", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/dashboard", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/login", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/profile", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/special-site-revenue", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/all-site-revenue", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/all-news", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/all-withdraw", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/success-withdraw", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/reject-withdraw", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
+    // app.get("/withdraw-method", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    // });
 }
 
 app.use(express.static(path.join(__dirname, "public")));
